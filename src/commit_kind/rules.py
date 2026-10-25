@@ -34,26 +34,33 @@ RULES: tuple[Rule, ...] = (
         (
             *("extract", "extracted", "inline", "split", "consolidate", "deduplicate"),
             *("rename", "renamed", "move", "moved", "simplify"),
+            *("refactor", "refactored", "restructure", "reorganize", "optimize", "speed up"),
         ),
     ),
-    Rule("verb.chore", "verb", "chore", ("bump", "bumped", "pin", "regenerate", "tidy")),
+    Rule(
+        "verb.chore",
+        "verb",
+        "chore",
+        ("bump", "bumped", "pin", "regenerate", "tidy", "clean up", "cleanup"),
+    ),
     Rule(
         "verb.docs",
         "verb",
         "docs",
-        ("document", "clarify", "explain", "describe", "reword", "correct"),
+        ("document", "clarify", "explain", "describe", "reword"),
     ),
     Rule("verb.test", "verb", "test", ("cover", "parametrize", "mock", "assert")),
     Rule(
         "verb.feat",
         "verb",
         "feat",
-        ("introduce", "support", "allow", "enable", "expose", "provide"),
+        ("introduce", "support", "allow", "enable", "expose", "provide", "implement"),
     ),
     # Verbs that need their object; the label is the default.
     Rule("ambiguous.add", "ambiguous", "feat", ("add", "adds", "added")),
     Rule("ambiguous.extend", "ambiguous", "feat", ("extend",)),
-    Rule("ambiguous.fix", "ambiguous", "fix", ("fix", "fixed")),
+    Rule("ambiguous.fix", "ambiguous", "fix", ("fix", "fixed", "fixes", "correct")),
+    Rule("ambiguous.remove", "ambiguous", "refactor", ("remove", "delete", "drop")),
     Rule("ambiguous.update", "ambiguous", "chore", ("update", "updated")),
     Rule("ambiguous.upgrade", "ambiguous", "chore", ("upgrade",)),
     Rule("ambiguous.write", "ambiguous", "docs", ("write", "wrote")),
@@ -62,7 +69,10 @@ RULES: tuple[Rule, ...] = (
         "object.chore",
         "object",
         "chore",
-        ("dependency", "workflow", "lint", "pyproject.toml", "makefile", ".gitignore", "ci"),
+        (
+            *("dependency", "dependencies", "workflow", "lint", "pyproject.toml"),
+            *("makefile", ".gitignore", "ci"),
+        ),
     ),
     Rule(
         "object.test",
@@ -77,6 +87,7 @@ RULES: tuple[Rule, ...] = (
         (
             *("readme", "docstring", "example", "changelog", "section", "notes", "intro"),
             *("guide", "description", "typo", "wording", "docs/"),
+            *("spelling", "docs", "documentation", "docstrings", "examples"),
         ),
     ),
     Rule(
