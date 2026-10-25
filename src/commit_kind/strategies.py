@@ -7,6 +7,8 @@ from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from typing import Protocol
 
+from commit_kind.classifier import classify
+
 
 class Strategy(Protocol):
     def predict(self, message: str) -> str:
@@ -59,3 +61,4 @@ REGISTRY: dict[str, Callable[[StrategyContext], Strategy]] = {
     "keyword_spam": _keyword_spam,
     "random": _random,
 }
+REGISTRY["rules"] = lambda ctx: _Fn(lambda message: classify(message).label)
