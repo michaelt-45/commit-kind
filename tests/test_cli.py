@@ -18,7 +18,7 @@ def test_version_in_process(capsys: pytest.CaptureFixture[str]) -> None:
 
 
 def test_module_entry_version() -> None:
-    env = {**os.environ, "PYTHONPATH": "src"}
+    env = {**os.environ, "PYTHONPATH": os.pathsep.join(["src", "tests"])}
     result = subprocess.run(
         [sys.executable, "-m", "commit_kind", "--version"],
         cwd=ROOT,

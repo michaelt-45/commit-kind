@@ -65,17 +65,13 @@ def test_explain_knows_every_kind() -> None:
 
 def test_child_network_blocked() -> None:
     code = "import socket; socket.create_connection(('127.0.0.1', 9))"
-    r = (
-        run("-c", code)
-        if False
-        else subprocess.run(
-            [sys.executable, "-c", code],
-            cwd=ROOT,
-            env={**os.environ, "PYTHONPATH": "tests"},
-            capture_output=True,
-            text=True,
-            timeout=30,
-        )
+    r = subprocess.run(
+        [sys.executable, "-c", code],
+        cwd=ROOT,
+        env={**os.environ, "PYTHONPATH": "tests"},
+        capture_output=True,
+        text=True,
+        timeout=30,
     )
     assert r.returncode != 0
     assert "network access is blocked" in r.stderr
