@@ -1,0 +1,99 @@
+{
+  "baseline": "baseline.json",
+  "classifier": null,
+  "controls": [
+    "majority",
+    "keyword_spam",
+    "random"
+  ],
+  "dataset": "../data/commits.jsonl",
+  "finished_blocks": [
+    "B3"
+  ],
+  "keyword_spam": {
+    "chore": [
+      "chore",
+      "bump",
+      "upgrade",
+      "dependency",
+      "dependencies",
+      "deps",
+      "ci",
+      "build",
+      "release",
+      "version",
+      "lint"
+    ],
+    "docs": [
+      "docs",
+      "doc",
+      "documentation",
+      "readme",
+      "comment",
+      "comments",
+      "docstring",
+      "guide",
+      "changelog",
+      "example",
+      "examples"
+    ],
+    "feat": [
+      "feat",
+      "feature",
+      "add",
+      "adds",
+      "added",
+      "new",
+      "support",
+      "implement",
+      "introduce",
+      "allow",
+      "enable"
+    ],
+    "fix": [
+      "fix",
+      "fixes",
+      "fixed",
+      "bug",
+      "bugfix",
+      "crash",
+      "error",
+      "issue",
+      "broken",
+      "resolve",
+      "typo",
+      "regression"
+    ],
+    "refactor": [
+      "refactor",
+      "refactoring",
+      "rename",
+      "renamed",
+      "move",
+      "moved",
+      "extract",
+      "simplify",
+      "cleanup",
+      "restructure"
+    ],
+    "test": [
+      "test",
+      "tests",
+      "testing",
+      "spec",
+      "coverage",
+      "fixture",
+      "fixtures",
+      "mock",
+      "assert",
+      "pytest"
+    ]
+  },
+  "random_seed": 20261025,
+  "thresholds": {
+    "accuracy": 0.85,
+    "macro_f1": 0.85,
+    "min_recall": 0.7,
+    "misleading_accuracy": 0.7
+  }
+}
