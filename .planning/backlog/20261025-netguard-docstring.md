@@ -8,7 +8,7 @@ risk: 0.5
 blocking: false
 score: 0.5
 block: B2
-status: open
+status: done
 ---
 # Autouse fixture docstring says re-apply, the code only asserts
 **Finding:** tests/conftest.py _block_network docstring does not match its body.

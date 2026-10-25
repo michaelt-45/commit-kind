@@ -8,7 +8,7 @@ risk: 2
 blocking: false
 score: 2.0
 block: B2
-status: open
+status: done
 ---
 # check.sh does not lint scripts/
 **Finding:** ruff and mypy run on src and tests only; B2 adds scripts/generate_dataset.py.
