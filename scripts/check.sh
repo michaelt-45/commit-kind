@@ -42,9 +42,9 @@ case "${1:-}" in
             exit 3
         fi
         export COMMIT_KIND_CHECK_RUNNING=1
-        run_step ruff-check "$PY" -m ruff check src tests
-        run_step ruff-format "$PY" -m ruff format --check src tests
-        run_step mypy "$PY" -m mypy --strict src tests
+        run_step ruff-check "$PY" -m ruff check src tests scripts
+        run_step ruff-format "$PY" -m ruff format --check src tests scripts
+        run_step mypy "$PY" -m mypy --strict src tests scripts
         run_step pytest "$PY" -m pytest -q
         # >>> EVAL STEP (added in B3) >>>
         # run_step eval "$PY" -m commit_kind eval
