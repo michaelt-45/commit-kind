@@ -41,11 +41,19 @@ def test_unknown_argument_is_usage_error() -> None:
     assert "usage" in result.stderr
 
 
+def test_more_than_one_argument_is_usage_error() -> None:
+    result = run_script("--selftest-pass", "--selftest-fail")
+    assert result.returncode == 2
+    assert "usage" in result.stderr
+
+
 def test_recursive_real_run_is_refused() -> None:
     env = {**os.environ, "COMMIT_KIND_CHECK_RUNNING": "1"}
     result = run_script(env=env)
     assert result.returncode == 3
-    assert "refusing recursive" in result.stderr
+    assert "refusing recursive check.sh run (COMMIT_KIND_CHECK_RUNNING is set; unset it)" in (
+        result.stderr
+    )
 
 
 def test_real_steps_use_run_step() -> None:

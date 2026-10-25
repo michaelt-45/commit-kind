@@ -30,10 +30,15 @@ finish() {
     exit 1
 }
 
+if [ "$#" -gt 1 ]; then
+    echo "usage: scripts/check.sh [--selftest-pass | --selftest-fail]" >&2
+    exit 2
+fi
+
 case "${1:-}" in
     "")
         if [ -n "${COMMIT_KIND_CHECK_RUNNING:-}" ]; then
-            echo "refusing recursive check.sh run" >&2
+            echo "refusing recursive check.sh run (COMMIT_KIND_CHECK_RUNNING is set; unset it)" >&2
             exit 3
         fi
         export COMMIT_KIND_CHECK_RUNNING=1
