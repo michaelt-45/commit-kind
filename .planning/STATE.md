@@ -1,9 +1,9 @@
 # State
 
-Milestone 1, setup done 2026-10-25. Current: B1 rework round 1; B2 and B3 being planned.
+Milestone 1, setup done 2026-10-25. B1 merged; B2 and B3 being planned.
 
 ## Blocks
-- B1 Gate skeleton: built, reviewed (1 blocker fixed: summary text), rework 1 running
+- B1 Gate skeleton: merged 2026-10-25 (review: 1 blocker fixed, rework 1), check green, 24 tests
 - B2 Synthetic dataset: waiting for B1
 - B3 Eval harness: waiting for B1
 - B4 Classifier: waiting for B2, B3
