@@ -1,0 +1,360 @@
+{"id": "c0001", "label": "chore", "message": "chore: pin fastcodec to 1.11.0 in pyproject.toml\n\nDone as a separate commit so it is easy to revert.\n\nRefs: #648", "slice": "prefixed", "split": "test"}
+{"id": "c0002", "label": "feat", "message": "feat: allow the indexer to skip empty entries", "slice": "prefixed", "split": "dev"}
+{"id": "c0003", "label": "docs", "message": "Fix typo and broken wording in the README quickstart\n\nTerminology is now consistent across the pages.\nShort and to the point, with one concrete case per section.\nLinks between the sections were tightened up.", "slice": "misleading", "split": "test"}
+{"id": "c0004", "label": "docs", "message": "Reword the refactor notes for the formatter", "slice": "misleading", "split": "dev"}
+{"id": "c0005", "label": "fix", "message": "fix: Restore the exit status in the path resolver", "slice": "prefixed", "split": "dev"}
+{"id": "c0006", "label": "feat", "message": "Provide a --limit option for the diff engine", "slice": "plain", "split": "dev"}
+{"id": "c0007", "label": "feat", "message": "Added a limit hook for the chore that handles the CI deps", "slice": "misleading", "split": "dev"}
+{"id": "c0008", "label": "feat", "message": "Add a quiet setting to the diff engine", "slice": "plain", "split": "dev"}
+{"id": "c0009", "label": "fix", "message": "fix: Avoid an off-by-one error in the queue worker on empty batches", "slice": "prefixed", "split": "dev"}
+{"id": "c0010", "label": "fix", "message": "Stop retrying forever ahead of the pytest coverage and testing run", "slice": "misleading", "split": "dev"}
+{"id": "c0011", "label": "feat", "message": "Expose per-stage timings from the tokenizer", "slice": "plain", "split": "test"}
+{"id": "c0012", "label": "fix", "message": "Prevent an infinite loop when the cache layer gets a missing field", "slice": "plain", "split": "test"}
+{"id": "c0013", "label": "chore", "message": "Regenerate the sample data tables", "slice": "plain", "split": "test"}
+{"id": "c0014", "label": "fix", "message": "Prevent a hang since the tests and fixtures assert the old output\n\nBehaviour for well-formed input is unchanged.\nSeen twice in long runs before it was tracked down.\nFound while running the batch job against a large archive.", "slice": "misleading", "split": "test"}
+{"id": "c0015", "label": "test", "message": "Cover a truncated file in the metrics collector with a test", "slice": "plain", "split": "test"}
+{"id": "c0016", "label": "fix", "message": "Avoid a wrong exit code in the cache layer on large inputs", "slice": "plain", "split": "dev"}
+{"id": "c0017", "label": "feat", "message": "Provide a parallel mode for the formatter", "slice": "plain", "split": "test"}
+{"id": "c0018", "label": "test", "message": "Cover the upload handler empty-input paths with tests", "slice": "plain", "split": "test"}
+{"id": "c0019", "label": "chore", "message": "chore: bump pathkit to 4.11.4", "slice": "prefixed", "split": "test"}
+{"id": "c0020", "label": "feat", "message": "feat(report): Add a verbose subcommand to the exporter", "slice": "prefixed", "split": "test"}
+{"id": "c0021", "label": "docs", "message": "Update the README intro after the deps bump and the version change", "slice": "misleading", "split": "test"}
+{"id": "c0022", "label": "refactor", "message": "Extract the field lookup from the auth middleware into a helper", "slice": "plain", "split": "test"}
+{"id": "c0023", "label": "docs", "message": "Describe the logging levels in docs/architecture.md\n\nWording follows the style used in the rest of the guide.\nThe old text did not match what the code actually does.\nReaders kept asking about this, so it is now written down.", "slice": "plain", "split": "test"}
+{"id": "c0024", "label": "refactor", "message": "Inline the field lookup in the config loader", "slice": "plain", "split": "test"}
+{"id": "c0025", "label": "fix", "message": "Stop writing partial files for the CI lint and build step", "slice": "misleading", "split": "dev"}
+{"id": "c0026", "label": "fix", "message": "fix(formatter): handle a truncated file in the template engine\n\nThe old code assumed the value was always set.\nIt only happened on the second call, never on the first.", "slice": "prefixed", "split": "dev"}
+{"id": "c0027", "label": "fix", "message": "fix(report): avoid an infinite loop in the validator on slow disks", "slice": "prefixed", "split": "test"}
+{"id": "c0028", "label": "refactor", "message": "refactor(cli): split src/validator.py into smaller modules\n\nCloses #467", "slice": "prefixed", "split": "dev"}
+{"id": "c0029", "label": "test", "message": "Extend the importer tests for the broken bugfix in the metrics collector\n\nNo network or clock access, so the runs are repeatable.", "slice": "misleading", "split": "test"}
+{"id": "c0030", "label": "feat", "message": "feat(router): extend the batch runner with a --parallel option\n\nRefs: #449", "slice": "prefixed", "split": "test"}
+{"id": "c0031", "label": "test", "message": "test: cover a zero value in the validator with a test\n\nNames describe the situation under check.\nInputs are small and built inline, with no files on disk.\nCovers the paths that were only exercised by accident before.", "slice": "prefixed", "split": "test"}
+{"id": "c0032", "label": "test", "message": "Write tests for the README and docs examples in the rate limiter", "slice": "misleading", "split": "test"}
+{"id": "c0033", "label": "docs", "message": "Document the glossary used by the diff engine", "slice": "plain", "split": "test"}
+{"id": "c0034", "label": "chore", "message": "Update the fastcodec dependency to 1.7.0", "slice": "plain", "split": "test"}
+{"id": "c0035", "label": "fix", "message": "fix: stop the job runner from reading stale entries\n\nCloses #909", "slice": "prefixed", "split": "test"}
+{"id": "c0036", "label": "refactor", "message": "refactor(session): split src/loader.py into smaller modules", "slice": "prefixed", "split": "dev"}
+{"id": "c0037", "label": "refactor", "message": "refactor!: consolidate the output formatting into one function", "slice": "prefixed", "split": "dev"}
+{"id": "c0038", "label": "docs", "message": "docs: Document the exit codes of the search index", "slice": "prefixed", "split": "dev"}
+{"id": "c0039", "label": "chore", "message": "Pin fastcodec to 0.4.7 after the crash and regression\n\nChecked locally before committing.\nKeeps the tooling in line with the supported Python range.", "slice": "misleading", "split": "test"}
+{"id": "c0040", "label": "chore", "message": "chore(indexer): write a Makefile target for cleaning caches", "slice": "prefixed", "split": "test"}
+{"id": "c0041", "label": "chore", "message": "Regenerate the shell completion files\n\nDone after the pytest, mock and coverage changes.", "slice": "misleading", "split": "test"}
+{"id": "c0042", "label": "chore", "message": "Bump dateparse to 0.14.8", "slice": "plain", "split": "test"}
+{"id": "c0043", "label": "refactor", "message": "refactor: extracted the header parsing from the session store", "slice": "prefixed", "split": "test"}
+{"id": "c0044", "label": "fix", "message": "Prevent the new feature flag from hanging the parser", "slice": "misleading", "split": "test"}
+{"id": "c0045", "label": "chore", "message": "Write a Makefile target for formatting the sources", "slice": "plain", "split": "dev"}
+{"id": "c0046", "label": "docs", "message": "Document the output formats of the template engine", "slice": "plain", "split": "dev"}
+{"id": "c0047", "label": "fix", "message": "Handle a poisoned lock in the scheduler\n\nDone for the README and the docs guide.", "slice": "misleading", "split": "test"}
+{"id": "c0048", "label": "test", "message": "Write test cases for a trailing comma\n\nDone during the cleanup, rename and restructure.\nThese cases run in well under a second.\nCovers the paths that were only exercised by accident before.", "slice": "misleading", "split": "test"}
+{"id": "c0049", "label": "docs", "message": "Explain the pagination limits of the log writer\n\nDone for the spec and the test fixtures.", "slice": "misleading", "split": "test"}
+{"id": "c0050", "label": "chore", "message": "Tidy the dependency groups after the pytest, mock and coverage changes", "slice": "misleading", "split": "dev"}
+{"id": "c0051", "label": "docs", "message": "Write a docstring for the log writer class\n\nReaders kept asking about this, so it is now written down.\nNo code changes in this commit.\nTerminology is now consistent across the pages.", "slice": "plain", "split": "test"}
+{"id": "c0052", "label": "refactor", "message": "Inline the path normalisation in the log writer\n\nNames now say what the code does, not how it got here.", "slice": "plain", "split": "dev"}
+{"id": "c0053", "label": "chore", "message": "Bumped pathkit to 2.11.1\n\nDone after the refactor that moved and renamed the log writer.", "slice": "misleading", "split": "test"}
+{"id": "c0054", "label": "docs", "message": "Update the README section on the archive reader\n\nLinks between the sections were tightened up.\nReaders kept asking about this, so it is now written down.\nNo code changes in this commit.", "slice": "plain", "split": "dev"}
+{"id": "c0055", "label": "feat", "message": "Provide a verbose setting ahead of the pytest coverage and testing run\n\nWorks together with the existing output settings.", "slice": "misleading", "split": "dev"}
+{"id": "c0056", "label": "test", "message": "test(session): Update the parser fixtures to match the current schema", "slice": "prefixed", "split": "dev"}
+{"id": "c0057", "label": "docs", "message": "Update the README test and coverage notes for the rate limiter\n\nNo code changes in this commit.\nShort and to the point, with one concrete case per section.", "slice": "misleading", "split": "test"}
+{"id": "c0058", "label": "fix", "message": "Guard against clock skew in the config loader\n\nDone during the cleanup, rename and restructure.", "slice": "misleading", "split": "test"}
+{"id": "c0059", "label": "chore", "message": "chore(importer): tidy the lint settings in pyproject.toml\n\nKeeps the tooling in line with the supported Python range.\nPart of the regular upkeep of the project.", "slice": "prefixed", "split": "test"}
+{"id": "c0060", "label": "feat", "message": "Expose the raw record count from the parser", "slice": "plain", "split": "test"}
+{"id": "c0061", "label": "fix", "message": "fix: fixed a race condition in the report writer on a cold start", "slice": "prefixed", "split": "dev"}
+{"id": "c0062", "label": "refactor", "message": "Split src/indexer.py into smaller modules", "slice": "plain", "split": "dev"}
+{"id": "c0063", "label": "feat", "message": "Add a resume mode to report the crash and error state\n\nKeeps the public interface small and easy to extend.", "slice": "misleading", "split": "dev"}
+{"id": "c0064", "label": "test", "message": "test!: Wrote tests for a trailing comma in the report writer\n\nBREAKING CHANGE: callers must pass the config path explicitly", "slice": "prefixed", "split": "dev"}
+{"id": "c0065", "label": "feat", "message": "feat: enable a --dedupe flag on the router", "slice": "prefixed", "split": "test"}
+{"id": "c0066", "label": "docs", "message": "docs: Updated the output formats section in docs/faq.md", "slice": "prefixed", "split": "dev"}
+{"id": "c0067", "label": "feat", "message": "Provide a resume mode for the template engine", "slice": "plain", "split": "dev"}
+{"id": "c0068", "label": "test", "message": "Cover the leap year cases in the planner", "slice": "plain", "split": "test"}
+{"id": "c0069", "label": "test", "message": "Extend the job runner tests to resolve the issue and the regression", "slice": "misleading", "split": "test"}
+{"id": "c0070", "label": "feat", "message": "feat(importer): enable a strict hook on the formatter", "slice": "prefixed", "split": "test"}
+{"id": "c0071", "label": "feat", "message": "feat: expose the item count from the planner\n\nThe default stays the same, so existing callers are unaffected.\n\nRefs: #770", "slice": "prefixed", "split": "test"}
+{"id": "c0072", "label": "refactor", "message": "Rename the private attributes\n\nDone since the tests and fixtures assert the old output.\nNames now say what the code does, not how it got here.\nThe helpers are small enough to read in one go.", "slice": "misleading", "split": "test"}
+{"id": "c0073", "label": "chore", "message": "chore(tokenizer): Upgrade retrylib to 4.10.6", "slice": "prefixed", "split": "test"}
+{"id": "c0074", "label": "test", "message": "test: Extend tests/test_parser.py with more edge cases\n\nRefs: #852", "slice": "prefixed", "split": "test"}
+{"id": "c0075", "label": "fix", "message": "Prevent a torn read in the indexer", "slice": "plain", "split": "test"}
+{"id": "c0076", "label": "feat", "message": "Add a quiet subcommand ahead of the dependency upgrade and release", "slice": "misleading", "split": "test"}
+{"id": "c0077", "label": "refactor", "message": "refactor(cache): simplify the header parsing in the auth middleware\n\nThe helpers are small enough to read in one go.\nNames now say what the code does, not how it got here.\n\nCloses #418", "slice": "prefixed", "split": "dev"}
+{"id": "c0078", "label": "docs", "message": "Update the README test and coverage notes for the parser\n\nShort and to the point, with one concrete case per section.\nReaders kept asking about this, so it is now written down.\nThe old text did not match what the code actually does.", "slice": "misleading", "split": "dev"}
+{"id": "c0079", "label": "docs", "message": "docs!: clarify the output formats in the README\n\nWording follows the style used in the rest of the guide.\nLinks between the sections were tightened up.\n\nBREAKING CHANGE: the --strict mode is on by default", "slice": "prefixed", "split": "dev"}
+{"id": "c0080", "label": "test", "message": "test: wrote tests for a trailing comma in the config loader\n\nEach case states its expectation in one line.\nThese cases run in well under a second.", "slice": "prefixed", "split": "test"}
+{"id": "c0081", "label": "chore", "message": "chore(cache): bumped fastcodec to 3.0.5\n\nChecked locally before committing.\nKeeps the tooling in line with the supported Python range.", "slice": "prefixed", "split": "dev"}
+{"id": "c0082", "label": "test", "message": "Add tests for the new feature flag support in the retry policy", "slice": "misleading", "split": "test"}
+{"id": "c0083", "label": "docs", "message": "Clarify the output formats\n\nDone after the refactor that moved and renamed the metrics collector.", "slice": "misleading", "split": "test"}
+{"id": "c0084", "label": "feat", "message": "Support Markdown output in the indexer\n\nThe default stays the same, so existing callers are unaffected.\nKeeps the public interface small and easy to extend.", "slice": "plain", "split": "test"}
+{"id": "c0085", "label": "docs", "message": "docs: Clarify the command-line options in the README\n\nNo code changes in this commit.\nLinks between the sections were tightened up.", "slice": "prefixed", "split": "test"}
+{"id": "c0086", "label": "test", "message": "Cover a negative offset ahead of the dependency upgrade and release\n\nNo network or clock access, so the runs are repeatable.\nNames describe the situation under check.\nCovers the paths that were only exercised by accident before.", "slice": "misleading", "split": "dev"}
+{"id": "c0087", "label": "fix", "message": "Restore the line ordering to simplify and extract the shared code", "slice": "misleading", "split": "dev"}
+{"id": "c0088", "label": "chore", "message": "Update the CI workflow for Python 3.13", "slice": "plain", "split": "dev"}
+{"id": "c0089", "label": "refactor", "message": "refactor(formatter): rename the config keys in src/parser.py for clarity", "slice": "prefixed", "split": "test"}
+{"id": "c0090", "label": "chore", "message": "Update the clipkit dependency to 2.1.3\n\nDone as a separate commit so it is easy to revert.\nNothing in the public interface is touched.\nKeeps the tooling in line with the supported Python range.", "slice": "plain", "split": "dev"}
+{"id": "c0091", "label": "chore", "message": "Bump lockstep to 3.9.7 to simplify and extract the shared code", "slice": "misleading", "split": "dev"}
+{"id": "c0092", "label": "feat", "message": "Provide a --color option for the state machine", "slice": "plain", "split": "dev"}
+{"id": "c0093", "label": "test", "message": "test: Write test cases for a trailing comma in the queue worker\n\nEach case states its expectation in one line.", "slice": "prefixed", "split": "dev"}
+{"id": "c0094", "label": "docs", "message": "Update the usage example for the metrics collector", "slice": "plain", "split": "test"}
+{"id": "c0095", "label": "chore", "message": "chore(formatter): upgrade jsonmend to 3.4.3\n\nNothing in the public interface is touched.\nKeeps the tooling in line with the supported Python range.", "slice": "prefixed", "split": "dev"}
+{"id": "c0096", "label": "docs", "message": "Updated the limits and defaults section in docs/usage.md\n\nShort and to the point, with one concrete case per section.", "slice": "plain", "split": "dev"}
+{"id": "c0097", "label": "docs", "message": "Update the usage example for the template engine", "slice": "plain", "split": "test"}
+{"id": "c0098", "label": "refactor", "message": "refactor(router)!: Consolidate the batching code into one function\n\nNames now say what the code does, not how it got here.\n\nBREAKING CHANGE: the old retry settings are no longer read", "slice": "prefixed", "split": "test"}
+{"id": "c0099", "label": "feat", "message": "Support TSV output in the validator", "slice": "plain", "split": "dev"}
+{"id": "c0100", "label": "chore", "message": "Bump the bundled sqlite to 1.1.8\n\nDone for the new feature that adds JSON support.\nPart of the regular upkeep of the project.\nDone as a separate commit so it is easy to revert.", "slice": "misleading", "split": "test"}
+{"id": "c0101", "label": "chore", "message": "chore(planner): Update the fastcodec dependency to 2.10.6\n\nKeeps the tooling in line with the supported Python range.\nPart of the regular upkeep of the project.\nRoutine maintenance, no change to behaviour.\n\nCloses #507", "slice": "prefixed", "split": "test"}
+{"id": "c0102", "label": "fix", "message": "fix!: Fix a memory leak when the job runner gets a negative offset\n\nBehaviour for well-formed input is unchanged.", "slice": "prefixed", "split": "test"}
+{"id": "c0103", "label": "docs", "message": "docs: document the default values of the job runner", "slice": "prefixed", "split": "test"}
+{"id": "c0104", "label": "docs", "message": "Fix typo and broken error wording in the state machine docstring", "slice": "misleading", "split": "dev"}
+{"id": "c0105", "label": "test", "message": "Extend the snapshot cases for the formatter", "slice": "plain", "split": "test"}
+{"id": "c0106", "label": "refactor", "message": "refactor: Move the path normalisation out of the path resolver", "slice": "prefixed", "split": "test"}
+{"id": "c0107", "label": "docs", "message": "docs(exporter): update the usage example for the session store", "slice": "prefixed", "split": "test"}
+{"id": "c0108", "label": "refactor", "message": "Move the sorting logic out of the formatter", "slice": "plain", "split": "test"}
+{"id": "c0109", "label": "feat", "message": "Introduce a interactive hook and rename the move helpers", "slice": "misleading", "split": "test"}
+{"id": "c0110", "label": "chore", "message": "Pin fastcodec to 2.1.8 after the crash and regression", "slice": "misleading", "split": "dev"}
+{"id": "c0111", "label": "docs", "message": "docs: updated the configuration keys section in docs/config.md", "slice": "prefixed", "split": "dev"}
+{"id": "c0112", "label": "chore", "message": "Bump dateparse to 1.7.5 for the new feature to implement later", "slice": "misleading", "split": "dev"}
+{"id": "c0113", "label": "chore", "message": "Regenerate the lock file after the refactor and rename\n\nNothing in the public interface is touched.\nChecked locally before committing.\nPart of the regular upkeep of the project.", "slice": "misleading", "split": "test"}
+{"id": "c0114", "label": "test", "message": "Write tests for the parser for the README and the docs guide", "slice": "misleading", "split": "dev"}
+{"id": "c0115", "label": "chore", "message": "Tidy the devcontainer setup\n\nPart of the regular upkeep of the project.\nKeeps the tooling in line with the supported Python range.", "slice": "plain", "split": "test"}
+{"id": "c0116", "label": "docs", "message": "Update the README intro for the new feature to implement later", "slice": "misleading", "split": "test"}
+{"id": "c0117", "label": "chore", "message": "Bumped retrylib to 4.14.8 for the README and the docs guide", "slice": "misleading", "split": "test"}
+{"id": "c0118", "label": "fix", "message": "fix!: handle a truncated file in the state machine", "slice": "prefixed", "split": "test"}
+{"id": "c0119", "label": "test", "message": "Add tests for the new feature flag support in the parser", "slice": "misleading", "split": "dev"}
+{"id": "c0120", "label": "refactor", "message": "refactor: Simplify the path normalisation in the metrics collector", "slice": "prefixed", "split": "dev"}
+{"id": "c0121", "label": "fix", "message": "Stop the batch runner from dropping the last record\n\nFound while running the batch job against a large archive.", "slice": "plain", "split": "test"}
+{"id": "c0122", "label": "refactor", "message": "refactor: consolidate the header parsing into one function\n\nRefs: #93", "slice": "prefixed", "split": "dev"}
+{"id": "c0123", "label": "test", "message": "Extend tests/test_formatter.py with more edge cases\n\nThese cases run in well under a second.", "slice": "plain", "split": "test"}
+{"id": "c0124", "label": "feat", "message": "Enable a dedupe setting on the scheduler\n\nWorks together with the existing output settings.\nThe default stays the same, so existing callers are unaffected.\nThis makes the behaviour configurable from the command line.", "slice": "plain", "split": "test"}
+{"id": "c0125", "label": "feat", "message": "Enable a dry-run hook to resolve the issue and the regression", "slice": "misleading", "split": "test"}
+{"id": "c0126", "label": "docs", "message": "docs: document the command-line options of the metrics collector", "slice": "prefixed", "split": "dev"}
+{"id": "c0127", "label": "fix", "message": "Stop the indexer from writing partial files", "slice": "plain", "split": "test"}
+{"id": "c0128", "label": "fix", "message": "Fix a crash in the cache layer", "slice": "plain", "split": "test"}
+{"id": "c0129", "label": "refactor", "message": "Split src/retry.py into smaller modules", "slice": "plain", "split": "dev"}
+{"id": "c0130", "label": "refactor", "message": "refactor: Consolidate duplicate helpers in src/formatter.py", "slice": "prefixed", "split": "test"}
+{"id": "c0131", "label": "refactor", "message": "refactor: inline the retry loop in the path resolver", "slice": "prefixed", "split": "dev"}
+{"id": "c0132", "label": "refactor", "message": "Rename the helper functions as described in the README, guide and docs\n\nControl flow is flatter, with fewer nested branches.", "slice": "misleading", "split": "test"}
+{"id": "c0133", "label": "feat", "message": "feat(config): Provide a --resume flag for the metrics collector", "slice": "prefixed", "split": "test"}
+{"id": "c0134", "label": "docs", "message": "docs!: Updated the configuration keys section in docs/install.md\n\nReaders kept asking about this, so it is now written down.\nThe old text did not match what the code actually does.\n\nBREAKING CHANGE: the old retry settings are no longer read", "slice": "prefixed", "split": "dev"}
+{"id": "c0135", "label": "chore", "message": "Bump lockstep to 3.14.7 for the spec and the test fixtures", "slice": "misleading", "split": "dev"}
+{"id": "c0136", "label": "feat", "message": "Add a --summary option that prints the README and guide text", "slice": "misleading", "split": "test"}
+{"id": "c0137", "label": "test", "message": "Write test cases for a truncated file in the template engine", "slice": "plain", "split": "dev"}
+{"id": "c0138", "label": "fix", "message": "fix(router): Avoid a race condition in the planner on a cold start\n\nThe failure was easy to reproduce with a truncated file.\nThe old code assumed the value was always set.\n\nCloses #408", "slice": "prefixed", "split": "test"}
+{"id": "c0139", "label": "feat", "message": "feat!: expose a streaming iterator from the path resolver\n\nThe default stays the same, so existing callers are unaffected.\nThis makes the behaviour configurable from the command line.\nThe option is off unless it is switched on explicitly.\n\nBREAKING CHANGE: the default output format is now JSON", "slice": "prefixed", "split": "dev"}
+{"id": "c0140", "label": "test", "message": "test(report): wrote tests for a zero value in the scheduler\n\nCloses #157", "slice": "prefixed", "split": "test"}
+{"id": "c0141", "label": "test", "message": "Cover duplicate keys in the diff engine with a test\n\nInputs are small and built inline, with no files on disk.\nEach case states its expectation in one line.", "slice": "plain", "split": "test"}
+{"id": "c0142", "label": "fix", "message": "Guard against a very long line in src/parser.py", "slice": "plain", "split": "dev"}
+{"id": "c0143", "label": "refactor", "message": "Rename the private attributes in src/cache.py for clarity", "slice": "plain", "split": "dev"}
+{"id": "c0144", "label": "docs", "message": "Update the usage example for the report writer", "slice": "plain", "split": "dev"}
+{"id": "c0145", "label": "feat", "message": "feat(formatter): allow the batch runner to run in the background", "slice": "prefixed", "split": "dev"}
+{"id": "c0146", "label": "chore", "message": "Regenerate the lock file after the pytest and coverage changes", "slice": "misleading", "split": "test"}
+{"id": "c0147", "label": "feat", "message": "Introduce a --dry-run option and rename the move helpers", "slice": "misleading", "split": "dev"}
+{"id": "c0148", "label": "docs", "message": "docs: extend the changelog entry for the session store", "slice": "prefixed", "split": "dev"}
+{"id": "c0149", "label": "refactor", "message": "Extract the README and guide snippets into a helper\n\nThe same logic now lives in one place instead of three.", "slice": "misleading", "split": "dev"}
+{"id": "c0150", "label": "test", "message": "test(planner): write tests for the metrics collector", "slice": "prefixed", "split": "dev"}
+{"id": "c0151", "label": "docs", "message": "Update the README intro during the cleanup, rename and restructure\n\nLinks between the sections were tightened up.\nTerminology is now consistent across the pages.\nThe old text did not match what the code actually does.", "slice": "misleading", "split": "dev"}
+{"id": "c0152", "label": "fix", "message": "fix(formatter): Guard against a missing field in src/parser.py", "slice": "prefixed", "split": "dev"}
+{"id": "c0153", "label": "docs", "message": "Reword the exit codes section\n\nDone ahead of the dependency upgrade and release.", "slice": "misleading", "split": "dev"}
+{"id": "c0154", "label": "chore", "message": "Tidy .gitignore", "slice": "plain", "split": "dev"}
+{"id": "c0155", "label": "refactor", "message": "Inline the batching code after the deps bump and the version change", "slice": "misleading", "split": "test"}
+{"id": "c0156", "label": "test", "message": "test(router): write test cases for a zero value in the indexer\n\nRefs: #353", "slice": "prefixed", "split": "dev"}
+{"id": "c0157", "label": "test", "message": "Parametrize the event bus tests per the docstring and comment examples", "slice": "misleading", "split": "dev"}
+{"id": "c0158", "label": "refactor", "message": "Consolidate the header parsing\n\nDone after the deps bump and the version change.\nThe helpers are small enough to read in one go.\nThe same logic now lives in one place instead of three.\nPublic interfaces are untouched.", "slice": "misleading", "split": "dev"}
+{"id": "c0159", "label": "chore", "message": "Bump clipkit to 0.9.4", "slice": "plain", "split": "dev"}
+{"id": "c0160", "label": "test", "message": "Update the session store fixtures\n\nDone following the guide, README and changelog.\nNames describe the situation under check.\nThese cases run in well under a second.\nNo network or clock access, so the runs are repeatable.", "slice": "misleading", "split": "test"}
+{"id": "c0161", "label": "fix", "message": "fix: fixed a hang in the scheduler on large inputs\n\nSeen twice in long runs before it was tracked down.\nCallers now get a clear message instead of a stack trace.\nBehaviour for well-formed input is unchanged.", "slice": "prefixed", "split": "dev"}
+{"id": "c0162", "label": "fix", "message": "Fixed a race condition following the guide, README and changelog\n\nBehaviour for well-formed input is unchanged.", "slice": "misleading", "split": "dev"}
+{"id": "c0163", "label": "docs", "message": "Reword the installation steps section for the CI lint and build step", "slice": "misleading", "split": "test"}
+{"id": "c0164", "label": "test", "message": "Cover the bidi handling in the path resolver\n\nDone for the new feature to implement later.", "slice": "misleading", "split": "test"}
+{"id": "c0165", "label": "feat", "message": "feat: added Markdown export to the log writer\n\nOutput stays stable when the option is not used.\nWorks together with the existing output settings.\nThe option is off unless it is switched on explicitly.\n\nRefs: #782", "slice": "prefixed", "split": "dev"}
+{"id": "c0166", "label": "fix", "message": "Handle a trailing comma in the planner\n\nSeen twice in long runs before it was tracked down.\nFound while running the batch job against a large archive.", "slice": "plain", "split": "dev"}
+{"id": "c0167", "label": "fix", "message": "Handle a missing version in the release build of the log writer\n\nSeen twice in long runs before it was tracked down.\nCallers now get a clear message instead of a stack trace.\nThe failure was easy to reproduce with a truncated file.", "slice": "misleading", "split": "test"}
+{"id": "c0168", "label": "test", "message": "Parametrize the search index tests over timezones\n\nDone for the CI lint and build step.", "slice": "misleading", "split": "test"}
+{"id": "c0169", "label": "refactor", "message": "Untangle the callback chain in the path resolver", "slice": "plain", "split": "test"}
+{"id": "c0170", "label": "feat", "message": "Allow the scheduler to coalesce writes for the README and the docs guide", "slice": "misleading", "split": "test"}
+{"id": "c0171", "label": "chore", "message": "chore: Upgrade dateparse to 4.5.2", "slice": "prefixed", "split": "test"}
+{"id": "c0172", "label": "refactor", "message": "refactor(validator): Split src/tokenizer.py into smaller modules\n\nThe same logic now lives in one place instead of three.\nControl flow is flatter, with fewer nested branches.\nMakes the next change in this area much smaller.\n\nRefs: #457", "slice": "prefixed", "split": "test"}
+{"id": "c0173", "label": "docs", "message": "Update the README build and release notes for the state machine", "slice": "misleading", "split": "dev"}
+{"id": "c0174", "label": "docs", "message": "Reword the installation steps section of the guide", "slice": "plain", "split": "dev"}
+{"id": "c0175", "label": "refactor", "message": "Split src/cache.py into smaller modules", "slice": "plain", "split": "dev"}
+{"id": "c0176", "label": "refactor", "message": "Inline the option handling following the guide, README and changelog", "slice": "misleading", "split": "dev"}
+{"id": "c0177", "label": "test", "message": "Wrote tests for an empty input in the rate limiter", "slice": "plain", "split": "dev"}
+{"id": "c0178", "label": "chore", "message": "chore(importer): Update the jsonmend dependency to 1.7.1\n\nCloses #509", "slice": "prefixed", "split": "dev"}
+{"id": "c0179", "label": "feat", "message": "Add a interactive hook to run the spec and fixtures", "slice": "misleading", "split": "dev"}
+{"id": "c0180", "label": "test", "message": "Cover a very long line in the log writer with a test", "slice": "plain", "split": "dev"}
+{"id": "c0181", "label": "fix", "message": "fix: guard against a blank header in src/parser.py\n\nThe failure was easy to reproduce with a truncated file.\nThe old code assumed the value was always set.", "slice": "prefixed", "split": "test"}
+{"id": "c0182", "label": "refactor", "message": "Inline the header parsing for the new feature that adds JSON support\n\nPublic interfaces are untouched.\nNames now say what the code does, not how it got here.\nMakes the next change in this area much smaller.", "slice": "misleading", "split": "dev"}
+{"id": "c0183", "label": "refactor", "message": "Deduplicate the marshalling code in the config loader\n\nNo behaviour change intended.\nThe same logic now lives in one place instead of three.", "slice": "plain", "split": "test"}
+{"id": "c0184", "label": "fix", "message": "Stop the event bus from skipping blank lines", "slice": "plain", "split": "test"}
+{"id": "c0185", "label": "docs", "message": "docs(cli): update the README section on the scheduler", "slice": "prefixed", "split": "test"}
+{"id": "c0186", "label": "fix", "message": "fix: fix a memory leak when the diff engine gets duplicate keys", "slice": "prefixed", "split": "dev"}
+{"id": "c0187", "label": "fix", "message": "Handle the moved and renamed paths in the rate limiter", "slice": "misleading", "split": "dev"}
+{"id": "c0188", "label": "chore", "message": "Pin clipkit to 0.8.5 in pyproject.toml\n\nPart of the regular upkeep of the project.", "slice": "plain", "split": "test"}
+{"id": "c0189", "label": "test", "message": "test: extend tests/test_indexer.py with more edge cases\n\nCovers the paths that were only exercised by accident before.\nThese cases run in well under a second.", "slice": "prefixed", "split": "test"}
+{"id": "c0190", "label": "fix", "message": "Handle a missing fixture file in the formatter spec", "slice": "misleading", "split": "dev"}
+{"id": "c0191", "label": "feat", "message": "Add a resume mode that prints the README and guide text", "slice": "misleading", "split": "dev"}
+{"id": "c0192", "label": "chore", "message": "Pin lockstep to 4.12.3 in pyproject.toml", "slice": "plain", "split": "test"}
+{"id": "c0193", "label": "test", "message": "Parametrize the parser tests over locale settings", "slice": "plain", "split": "dev"}
+{"id": "c0194", "label": "chore", "message": "chore(router): pin clipkit to 0.9.6 in pyproject.toml", "slice": "prefixed", "split": "test"}
+{"id": "c0195", "label": "refactor", "message": "Split the new feature code out of the cache layer", "slice": "misleading", "split": "test"}
+{"id": "c0196", "label": "fix", "message": "fix(indexer): handle duplicate keys in the report writer\n\nThe problem showed up on inputs that were empty or very large.\nSeen twice in long runs before it was tracked down.\nThe old code assumed the value was always set.\n\nRefs: #788", "slice": "prefixed", "split": "test"}
+{"id": "c0197", "label": "feat", "message": "feat(planner): provide a --dedupe option for the upload handler", "slice": "prefixed", "split": "dev"}
+{"id": "c0198", "label": "fix", "message": "fix: Handle a very long line in the search index", "slice": "prefixed", "split": "test"}
+{"id": "c0199", "label": "feat", "message": "feat: Expose per-stage timings from the auth middleware", "slice": "prefixed", "split": "test"}
+{"id": "c0200", "label": "feat", "message": "Introduce a strict setting for the log writer\n\nDisabled by default to keep today's behaviour.", "slice": "plain", "split": "test"}
+{"id": "c0201", "label": "chore", "message": "Upgrade clipkit for the new feature that adds JSON support", "slice": "misleading", "split": "dev"}
+{"id": "c0202", "label": "feat", "message": "Enable a summary subcommand on the indexer", "slice": "plain", "split": "dev"}
+{"id": "c0203", "label": "refactor", "message": "Consolidate the retry loop into one function", "slice": "plain", "split": "test"}
+{"id": "c0204", "label": "test", "message": "Add tests for the new feature flag support in the tokenizer\n\nEach case states its expectation in one line.\nCovers the paths that were only exercised by accident before.", "slice": "misleading", "split": "dev"}
+{"id": "c0205", "label": "chore", "message": "Bump fastcodec to 3.8.9", "slice": "plain", "split": "dev"}
+{"id": "c0206", "label": "fix", "message": "Prevent an infinite loop for the README and the docs guide", "slice": "misleading", "split": "dev"}
+{"id": "c0207", "label": "docs", "message": "Document the output formats of the job runner\n\nNo code changes in this commit.\nReaders kept asking about this, so it is now written down.\nWording follows the style used in the rest of the guide.", "slice": "plain", "split": "dev"}
+{"id": "c0208", "label": "fix", "message": "fix: Guard against a negative offset in src/exporter.py", "slice": "prefixed", "split": "dev"}
+{"id": "c0209", "label": "test", "message": "Cover duplicate keys ahead of the dependency upgrade and release", "slice": "misleading", "split": "test"}
+{"id": "c0210", "label": "test", "message": "Cover a truncated file in the importer with a test", "slice": "plain", "split": "dev"}
+{"id": "c0211", "label": "refactor", "message": "refactor: Inline the field lookup in the batch runner\n\nCloses #62", "slice": "prefixed", "split": "test"}
+{"id": "c0212", "label": "refactor", "message": "Simplify the visitor plumbing in the path resolver\n\nDone for the CI lint and build step.\nNames now say what the code does, not how it got here.\nPublic interfaces are untouched.\nMakes the next change in this area much smaller.", "slice": "misleading", "split": "test"}
+{"id": "c0213", "label": "fix", "message": "Fix a deadlock in the router\n\nBehaviour for well-formed input is unchanged.\nCallers now get a clear message instead of a stack trace.\nSeen twice in long runs before it was tracked down.", "slice": "plain", "split": "dev"}
+{"id": "c0214", "label": "test", "message": "test(importer): extend tests/test_tokenizer.py with more edge cases", "slice": "prefixed", "split": "test"}
+{"id": "c0215", "label": "test", "message": "Extend tests/test_loader.py with more edge cases", "slice": "plain", "split": "dev"}
+{"id": "c0216", "label": "fix", "message": "Restore the original casing following the guide, README and changelog", "slice": "misleading", "split": "test"}
+{"id": "c0217", "label": "chore", "message": "chore: bumped strutil to 1.3.5", "slice": "prefixed", "split": "dev"}
+{"id": "c0218", "label": "chore", "message": "chore(indexer): Pin tablefmt to 2.13.4 in pyproject.toml", "slice": "prefixed", "split": "dev"}
+{"id": "c0219", "label": "docs", "message": "Update the README section on the path resolver\n\nThe old text did not match what the code actually does.\nLinks between the sections were tightened up.", "slice": "plain", "split": "dev"}
+{"id": "c0220", "label": "refactor", "message": "Move the sorting logic out of the state machine", "slice": "plain", "split": "dev"}
+{"id": "c0221", "label": "fix", "message": "Handle a negative offset after the new feature added support for it", "slice": "misleading", "split": "dev"}
+{"id": "c0222", "label": "fix", "message": "Fix a deadlock when the indexer gets a negative offset", "slice": "plain", "split": "dev"}
+{"id": "c0223", "label": "fix", "message": "Avoid a hang in the metrics collector on repeated calls", "slice": "plain", "split": "dev"}
+{"id": "c0224", "label": "refactor", "message": "Extract the error and crash handling into a helper", "slice": "misleading", "split": "dev"}
+{"id": "c0225", "label": "docs", "message": "docs(importer): Clarify the limits and defaults in the README", "slice": "prefixed", "split": "dev"}
+{"id": "c0226", "label": "chore", "message": "Pin pathkit to 1.3.3 in pyproject.toml", "slice": "plain", "split": "dev"}
+{"id": "c0227", "label": "docs", "message": "Write a docstring for the auth middleware class\n\nReaders kept asking about this, so it is now written down.\nWording follows the style used in the rest of the guide.", "slice": "plain", "split": "test"}
+{"id": "c0228", "label": "test", "message": "Wrote tests for a trailing comma in the indexer\n\nNo network or clock access, so the runs are repeatable.\nNames describe the situation under check.\nEach case states its expectation in one line.", "slice": "plain", "split": "test"}
+{"id": "c0229", "label": "feat", "message": "feat!: add a dedupe mode to the scheduler\n\nWorks together with the existing output settings.\n\nBREAKING CHANGE: the --strict mode is on by default", "slice": "prefixed", "split": "test"}
+{"id": "c0230", "label": "fix", "message": "Fixed an off-by-one error following the refactoring, rename and move", "slice": "misleading", "split": "test"}
+{"id": "c0231", "label": "feat", "message": "feat: support YAML output in the scheduler\n\nThe default stays the same, so existing callers are unaffected.\nWorks together with the existing output settings.", "slice": "prefixed", "split": "dev"}
+{"id": "c0232", "label": "test", "message": "Extend the archive reader tests for the broken bugfix in the job runner", "slice": "misleading", "split": "dev"}
+{"id": "c0233", "label": "feat", "message": "feat(formatter): Added TSV export to the tokenizer\n\nThe option is off unless it is switched on explicitly.\n\nRefs: #163", "slice": "prefixed", "split": "dev"}
+{"id": "c0234", "label": "refactor", "message": "refactor(session): move the header parsing out of the report writer\n\nNames now say what the code does, not how it got here.\nMakes the next change in this area much smaller.\nControl flow is flatter, with fewer nested branches.", "slice": "prefixed", "split": "dev"}
+{"id": "c0235", "label": "test", "message": "Update the planner fixtures after the refactor, cleanup and restructure\n\nEach case states its expectation in one line.", "slice": "misleading", "split": "dev"}
+{"id": "c0236", "label": "fix", "message": "Fix a wrong exit code when the router gets a negative offset\n\nThe failure was easy to reproduce with a truncated file.\nThe old code assumed the value was always set.", "slice": "plain", "split": "test"}
+{"id": "c0237", "label": "fix", "message": "fix(cli): fix a race condition in the event bus", "slice": "prefixed", "split": "dev"}
+{"id": "c0238", "label": "feat", "message": "feat(config): allow the retry policy to limit its output", "slice": "prefixed", "split": "test"}
+{"id": "c0239", "label": "chore", "message": "Pin yamlish to 2.12.0 as described in the README, guide and docs", "slice": "misleading", "split": "test"}
+{"id": "c0240", "label": "refactor", "message": "Simplify the sorting logic for the README and the docs guide\n\nPublic interfaces are untouched.\nNo behaviour change intended.\nMakes the next change in this area much smaller.", "slice": "misleading", "split": "test"}
+{"id": "c0241", "label": "chore", "message": "Bump jsonmend to 3.2.5", "slice": "plain", "split": "dev"}
+{"id": "c0242", "label": "fix", "message": "fix(queue)!: stop the indexer from reading stale entries\n\nIt only happened on the second call, never on the first.\n\nBREAKING CHANGE: the default output format is now JSON", "slice": "prefixed", "split": "test"}
+{"id": "c0243", "label": "docs", "message": "docs: write a docstring for the path resolver class", "slice": "prefixed", "split": "test"}
+{"id": "c0244", "label": "chore", "message": "chore: bumped fastcodec to 4.11.7", "slice": "prefixed", "split": "test"}
+{"id": "c0245", "label": "feat", "message": "Add a watch hook to the metrics collector\n\nThe option is off unless it is switched on explicitly.", "slice": "plain", "split": "test"}
+{"id": "c0246", "label": "fix", "message": "fix: Stop the state machine from ignoring the timeout", "slice": "prefixed", "split": "test"}
+{"id": "c0247", "label": "docs", "message": "docs: Reword the exit codes section of the guide", "slice": "prefixed", "split": "dev"}
+{"id": "c0248", "label": "chore", "message": "chore(validator): Tidy the dependency groups\n\nChecked locally before committing.\nRoutine maintenance, no change to behaviour.\nPart of the regular upkeep of the project.", "slice": "prefixed", "split": "dev"}
+{"id": "c0249", "label": "fix", "message": "Handle duplicate keys ahead of the new feature to enable batching", "slice": "misleading", "split": "dev"}
+{"id": "c0250", "label": "test", "message": "test(parser): Parametrize the tokenizer tests over input sizes\n\nCovers the paths that were only exercised by accident before.", "slice": "prefixed", "split": "test"}
+{"id": "c0251", "label": "feat", "message": "Enable a resume setting on the path resolver\n\nOutput stays stable when the option is not used.\nThe default stays the same, so existing callers are unaffected.\nKeeps the public interface small and easy to extend.", "slice": "plain", "split": "dev"}
+{"id": "c0252", "label": "refactor", "message": "Consolidate the retry shims in the batch runner\n\nDone to match the updated fixtures, mock and spec.\nMakes the next change in this area much smaller.\nNames now say what the code does, not how it got here.\nNo behaviour change intended.", "slice": "misleading", "split": "test"}
+{"id": "c0253", "label": "docs", "message": "docs(cli): document the logging levels of the job runner", "slice": "prefixed", "split": "test"}
+{"id": "c0254", "label": "test", "message": "Update the tests after the refactor and rename in the router", "slice": "misleading", "split": "test"}
+{"id": "c0255", "label": "chore", "message": "Bump pathkit to 4.1.4", "slice": "plain", "split": "test"}
+{"id": "c0256", "label": "fix", "message": "Avoid a missing check in the event bus on repeated calls\n\nThe failure was easy to reproduce with a truncated file.\nFound while running the batch job against a large archive.\nIt only happened on the second call, never on the first.", "slice": "plain", "split": "dev"}
+{"id": "c0257", "label": "fix", "message": "Restore the trailing newline in the exporter\n\nBehaviour for well-formed input is unchanged.", "slice": "plain", "split": "test"}
+{"id": "c0258", "label": "chore", "message": "Tidy the README, changelog and docs index\n\nKeeps the tooling in line with the supported Python range.\nPart of the regular upkeep of the project.\nNothing in the public interface is touched.", "slice": "misleading", "split": "dev"}
+{"id": "c0259", "label": "refactor", "message": "Move the option handling out of the indexer", "slice": "plain", "split": "dev"}
+{"id": "c0260", "label": "chore", "message": "chore: tidy the CI workflow", "slice": "prefixed", "split": "dev"}
+{"id": "c0261", "label": "refactor", "message": "refactor: move the batching code out of the rate limiter\n\nRefs: #163", "slice": "prefixed", "split": "dev"}
+{"id": "c0262", "label": "feat", "message": "Support Markdown output in the rate limiter", "slice": "plain", "split": "dev"}
+{"id": "c0263", "label": "feat", "message": "feat(config): extend the queue worker with a offline setting\n\nCloses #298", "slice": "prefixed", "split": "dev"}
+{"id": "c0264", "label": "refactor", "message": "Move the sorting logic out of the scheduler", "slice": "plain", "split": "dev"}
+{"id": "c0265", "label": "test", "message": "Write tests for the path resolver\n\nDone ahead of the dependency upgrade and release.", "slice": "misleading", "split": "dev"}
+{"id": "c0266", "label": "refactor", "message": "refactor(session): consolidate duplicate helpers in src/exporter.py", "slice": "prefixed", "split": "test"}
+{"id": "c0267", "label": "fix", "message": "fix(validator): Handle a negative offset in the search index", "slice": "prefixed", "split": "test"}
+{"id": "c0268", "label": "fix", "message": "Stop writing partial files for the chore that handles the CI deps", "slice": "misleading", "split": "test"}
+{"id": "c0269", "label": "docs", "message": "Reword the new feature description in the README", "slice": "misleading", "split": "dev"}
+{"id": "c0270", "label": "refactor", "message": "Move the field lookup out of the planner", "slice": "plain", "split": "dev"}
+{"id": "c0271", "label": "chore", "message": "chore(formatter): Pin lockstep to 0.6.2 in pyproject.toml\n\nPart of the regular upkeep of the project.\nRoutine maintenance, no change to behaviour.\nChecked locally before committing.", "slice": "prefixed", "split": "dev"}
+{"id": "c0272", "label": "test", "message": "test(indexer): cover the search index retry limits with tests", "slice": "prefixed", "split": "test"}
+{"id": "c0273", "label": "chore", "message": "Bumped fastcodec to 4.1.6\n\nNothing in the public interface is touched.\nDone as a separate commit so it is easy to revert.", "slice": "plain", "split": "test"}
+{"id": "c0274", "label": "test", "message": "test: write tests for the event bus on a cold start", "slice": "prefixed", "split": "dev"}
+{"id": "c0275", "label": "refactor", "message": "Extract the option handling to resolve the issue and the regression\n\nNo behaviour change intended.\nThe helpers are small enough to read in one go.", "slice": "misleading", "split": "test"}
+{"id": "c0276", "label": "refactor", "message": "Extract the output formatting to resolve the issue and the regression", "slice": "misleading", "split": "test"}
+{"id": "c0277", "label": "docs", "message": "docs(importer): reword the configuration keys section of the guide", "slice": "prefixed", "split": "dev"}
+{"id": "c0278", "label": "chore", "message": "chore: regenerate the icon sprites", "slice": "prefixed", "split": "test"}
+{"id": "c0279", "label": "test", "message": "Extend the cache layer tests for the broken bugfix in the importer\n\nThese cases run in well under a second.\nNo network or clock access, so the runs are repeatable.\nEach case states its expectation in one line.", "slice": "misleading", "split": "dev"}
+{"id": "c0280", "label": "docs", "message": "Fix typo and broken wording in the README options table", "slice": "misleading", "split": "dev"}
+{"id": "c0281", "label": "docs", "message": "docs: updated the command-line options section in docs/output.md\n\nCloses #948", "slice": "prefixed", "split": "test"}
+{"id": "c0282", "label": "test", "message": "test(cli): Wrote tests for a truncated file in the job runner", "slice": "prefixed", "split": "test"}
+{"id": "c0283", "label": "test", "message": "test: Extend tests/test_store.py with more edge cases\n\nEach case states its expectation in one line.\nNo network or clock access, so the runs are repeatable.\n\nRefs: #66", "slice": "prefixed", "split": "test"}
+{"id": "c0284", "label": "feat", "message": "Provide a lockfree fast path for the formatter", "slice": "plain", "split": "test"}
+{"id": "c0285", "label": "chore", "message": "Bump fastcodec to 4.2.5 following the refactoring, rename and move", "slice": "misleading", "split": "dev"}
+{"id": "c0286", "label": "refactor", "message": "Inline the field lookup in the upload handler", "slice": "plain", "split": "test"}
+{"id": "c0287", "label": "refactor", "message": "Deduplicate the field lookup\n\nDone to match the updated fixtures, mock and spec.", "slice": "misleading", "split": "dev"}
+{"id": "c0288", "label": "test", "message": "Update the formatter fixtures to match the current schema", "slice": "plain", "split": "dev"}
+{"id": "c0289", "label": "docs", "message": "Write a runbook for the session store\n\nThe old text did not match what the code actually does.\nWording follows the style used in the rest of the guide.", "slice": "plain", "split": "test"}
+{"id": "c0290", "label": "docs", "message": "Clarify the logging levels after the new feature added support for it\n\nLinks between the sections were tightened up.\nReaders kept asking about this, so it is now written down.\nNo code changes in this commit.", "slice": "misleading", "split": "test"}
+{"id": "c0291", "label": "feat", "message": "feat(cli): add a offline mode to the template engine", "slice": "prefixed", "split": "dev"}
+{"id": "c0292", "label": "chore", "message": "chore: Pin lockstep to 0.6.6 in pyproject.toml\n\nRefs: #829", "slice": "prefixed", "split": "dev"}
+{"id": "c0293", "label": "feat", "message": "feat: Allow the parser to run in the background", "slice": "prefixed", "split": "dev"}
+{"id": "c0294", "label": "feat", "message": "Enable a parallel mode ahead of the dependency upgrade and release", "slice": "misleading", "split": "dev"}
+{"id": "c0295", "label": "feat", "message": "Add a verbose hook to report the crash and error state", "slice": "misleading", "split": "dev"}
+{"id": "c0296", "label": "refactor", "message": "refactor(validator): inline the sorting logic in the batch runner", "slice": "prefixed", "split": "test"}
+{"id": "c0297", "label": "docs", "message": "docs: Reword the limits and defaults section of the guide", "slice": "prefixed", "split": "dev"}
+{"id": "c0298", "label": "feat", "message": "Provide a --color option per the docstring and comment examples", "slice": "misleading", "split": "dev"}
+{"id": "c0299", "label": "docs", "message": "docs: update the usage example for the state machine\n\nLinks between the sections were tightened up.\nNo code changes in this commit.\nReaders kept asking about this, so it is now written down.", "slice": "prefixed", "split": "test"}
+{"id": "c0300", "label": "feat", "message": "Introduce a watch setting and rename the move helpers\n\nOutput stays stable when the option is not used.\nDisabled by default to keep today's behaviour.\nThis makes the behaviour configurable from the command line.", "slice": "misleading", "split": "test"}
+{"id": "c0301", "label": "feat", "message": "Add a summary mode to run the spec and fixtures", "slice": "misleading", "split": "test"}
+{"id": "c0302", "label": "refactor", "message": "refactor(parser): extracted the retry loop from the search index", "slice": "prefixed", "split": "dev"}
+{"id": "c0303", "label": "docs", "message": "docs(validator): clarify the configuration keys in the README\n\nRefs: #192", "slice": "prefixed", "split": "test"}
+{"id": "c0304", "label": "docs", "message": "docs(config): update the usage example for the retry policy", "slice": "prefixed", "split": "test"}
+{"id": "c0305", "label": "chore", "message": "chore(cli): update the dateparse dependency to 0.6.3\n\nRoutine maintenance, no change to behaviour.\nNothing in the public interface is touched.\nDone as a separate commit so it is easy to revert.\n\nRefs: #201", "slice": "prefixed", "split": "dev"}
+{"id": "c0306", "label": "feat", "message": "feat(config): provide a --dry-run flag for the cache layer\n\nRefs: #764", "slice": "prefixed", "split": "test"}
+{"id": "c0307", "label": "test", "message": "Parametrize the formatter tests over worker counts", "slice": "plain", "split": "dev"}
+{"id": "c0308", "label": "test", "message": "Update the tests after the refactor and rename in the job runner", "slice": "misleading", "split": "dev"}
+{"id": "c0309", "label": "refactor", "message": "Split the new feature code out of the search index", "slice": "misleading", "split": "test"}
+{"id": "c0310", "label": "fix", "message": "fix(session)!: fix a deadlock when the batch runner gets a zero value\n\nThe failure was easy to reproduce with a truncated file.\nThe old code assumed the value was always set.\n\nRefs: #523", "slice": "prefixed", "split": "dev"}
+{"id": "c0311", "label": "chore", "message": "Update the tablefmt dependency to 2.11.1\n\nRoutine maintenance, no change to behaviour.\nChecked locally before committing.\nPart of the regular upkeep of the project.", "slice": "plain", "split": "dev"}
+{"id": "c0312", "label": "fix", "message": "Restore the sort order in the search index", "slice": "plain", "split": "dev"}
+{"id": "c0313", "label": "fix", "message": "Handle a missing fixture file in the search index spec\n\nThe failure was easy to reproduce with a truncated file.\nBehaviour for well-formed input is unchanged.", "slice": "misleading", "split": "test"}
+{"id": "c0314", "label": "feat", "message": "feat: introduce a quiet subcommand for the diff engine", "slice": "prefixed", "split": "test"}
+{"id": "c0315", "label": "chore", "message": "chore!: regenerate the generated schema stubs\n\nBREAKING CHANGE: the default output format is now JSON", "slice": "prefixed", "split": "dev"}
+{"id": "c0316", "label": "docs", "message": "Reword the logging levels section of the guide", "slice": "plain", "split": "dev"}
+{"id": "c0317", "label": "test", "message": "test(report): cover a negative offset in the path resolver with a test\n\nCloses #14", "slice": "prefixed", "split": "dev"}
+{"id": "c0318", "label": "docs", "message": "Update the README intro\n\nDone since the tests and fixtures assert the old output.\nThe old text did not match what the code actually does.", "slice": "misleading", "split": "dev"}
+{"id": "c0319", "label": "chore", "message": "chore: pin tablefmt to 4.3.0 in pyproject.toml\n\nRefs: #352", "slice": "prefixed", "split": "test"}
+{"id": "c0320", "label": "refactor", "message": "refactor(cli): simplify the retry loop in the config loader", "slice": "prefixed", "split": "dev"}
+{"id": "c0321", "label": "docs", "message": "Explain the exit codes for the feature we introduce and enable next", "slice": "misleading", "split": "dev"}
+{"id": "c0322", "label": "feat", "message": "Add a --interactive flag to run the spec and fixtures\n\nRequested by several users of the batch workflow.\nThe default stays the same, so existing callers are unaffected.\nThis makes the behaviour configurable from the command line.", "slice": "misleading", "split": "test"}
+{"id": "c0323", "label": "chore", "message": "Bumped pathkit to 4.0.8 following the guide, README and changelog\n\nPart of the regular upkeep of the project.\nChecked locally before committing.", "slice": "misleading", "split": "dev"}
+{"id": "c0324", "label": "fix", "message": "Stop skipping blank lines after the deps bump and the version change\n\nFound while running the batch job against a large archive.\nCallers now get a clear message instead of a stack trace.\nThe problem showed up on inputs that were empty or very large.", "slice": "misleading", "split": "dev"}
+{"id": "c0325", "label": "feat", "message": "Introduce a --watch flag for the release and build commands", "slice": "misleading", "split": "test"}
+{"id": "c0326", "label": "refactor", "message": "Split the new feature code out of the planner\n\nThe helpers are small enough to read in one go.\nPublic interfaces are untouched.", "slice": "misleading", "split": "dev"}
+{"id": "c0327", "label": "refactor", "message": "Move the output formatting out of the log writer\n\nMakes the next change in this area much smaller.\nNo behaviour change intended.", "slice": "plain", "split": "test"}
+{"id": "c0328", "label": "docs", "message": "docs: Explain how the validator handles a truncated file\n\nLinks between the sections were tightened up.\nNo code changes in this commit.", "slice": "prefixed", "split": "test"}
+{"id": "c0329", "label": "refactor", "message": "refactor: simplify the sorting logic in the retry policy", "slice": "prefixed", "split": "test"}
+{"id": "c0330", "label": "docs", "message": "Document the output formats of the indexer", "slice": "plain", "split": "test"}
+{"id": "c0331", "label": "test", "message": "test: write tests for the path resolver on slow disks", "slice": "prefixed", "split": "dev"}
+{"id": "c0332", "label": "chore", "message": "Bump strutil to 0.7.9 following the bug, crash and error reports", "slice": "misleading", "split": "dev"}
+{"id": "c0333", "label": "test", "message": "Cover a trailing comma in the indexer with a test", "slice": "plain", "split": "test"}
+{"id": "c0334", "label": "fix", "message": "Fix a livelock in the planner", "slice": "plain", "split": "test"}
+{"id": "c0335", "label": "chore", "message": "Bumped lockstep to 0.5.1 after the new feature added support for it", "slice": "misleading", "split": "test"}
+{"id": "c0336", "label": "docs", "message": "Describe the limits and defaults for the broken bugfix in the exporter\n\nReaders kept asking about this, so it is now written down.\nTerminology is now consistent across the pages.\nLinks between the sections were tightened up.", "slice": "misleading", "split": "test"}
+{"id": "c0337", "label": "chore", "message": "Pin the nightly cron schedule after the typo fixes and the bug reports", "slice": "misleading", "split": "test"}
+{"id": "c0338", "label": "feat", "message": "Added YAML export to the search index\n\nRequested by several users of the batch workflow.", "slice": "plain", "split": "dev"}
+{"id": "c0339", "label": "chore", "message": "Update the Dockerfile base image\n\nKeeps the tooling in line with the supported Python range.", "slice": "plain", "split": "test"}
+{"id": "c0340", "label": "test", "message": "test: write test cases for a very long line in the validator", "slice": "prefixed", "split": "dev"}
+{"id": "c0341", "label": "test", "message": "test: parametrize the scheduler tests over worker counts", "slice": "prefixed", "split": "dev"}
+{"id": "c0342", "label": "docs", "message": "Document the command-line options of the batch runner", "slice": "plain", "split": "test"}
+{"id": "c0343", "label": "feat", "message": "feat: add a offline hook to the retry policy", "slice": "prefixed", "split": "dev"}
+{"id": "c0344", "label": "refactor", "message": "Extract the batching code for the spec and the test fixtures", "slice": "misleading", "split": "dev"}
+{"id": "c0345", "label": "test", "message": "Write test cases for a blank header in the batch runner", "slice": "plain", "split": "dev"}
+{"id": "c0346", "label": "docs", "message": "Updated the retry behaviour section in docs/architecture.md", "slice": "plain", "split": "dev"}
+{"id": "c0347", "label": "refactor", "message": "Extracted the header parsing from the diff engine", "slice": "plain", "split": "test"}
+{"id": "c0348", "label": "docs", "message": "Clarify the migration notes for the search index\n\nDone after the refactor that moved and renamed the parser.\nReaders kept asking about this, so it is now written down.", "slice": "misleading", "split": "test"}
+{"id": "c0349", "label": "refactor", "message": "Extracted the field lookup to resolve the issue and the regression", "slice": "misleading", "split": "dev"}
+{"id": "c0350", "label": "fix", "message": "Fixed a stale cache entry in the state machine on a cold start\n\nThe problem showed up on inputs that were empty or very large.\nSeen twice in long runs before it was tracked down.\nFound while running the batch job against a large archive.", "slice": "plain", "split": "dev"}
+{"id": "c0351", "label": "feat", "message": "Expose per-shard counters from the cache layer\n\nDone for the broken bugfix in the batch runner.\nWorks together with the existing output settings.\nRequested by several users of the batch workflow.", "slice": "misleading", "split": "test"}
+{"id": "c0352", "label": "test", "message": "test: write test cases for a very long line in the event bus", "slice": "prefixed", "split": "dev"}
+{"id": "c0353", "label": "refactor", "message": "refactor(cache): inline the path normalisation in the retry policy", "slice": "prefixed", "split": "test"}
+{"id": "c0354", "label": "fix", "message": "fix: Fix an infinite loop when the job runner gets a blank header", "slice": "prefixed", "split": "dev"}
+{"id": "c0355", "label": "test", "message": "Write tests for the job runner\n\nEach case states its expectation in one line.\nNo network or clock access, so the runs are repeatable.\nInputs are small and built inline, with no files on disk.", "slice": "plain", "split": "test"}
+{"id": "c0356", "label": "fix", "message": "Prevent a wrong exit code for the feature we introduce and enable next", "slice": "misleading", "split": "test"}
+{"id": "c0357", "label": "test", "message": "test(indexer): Cover a blank header in the parser with a test", "slice": "prefixed", "split": "test"}
+{"id": "c0358", "label": "feat", "message": "Introduce a --interactive option and rename the move helpers", "slice": "misleading", "split": "dev"}
+{"id": "c0359", "label": "feat", "message": "Add a plugin slot to the session store\n\nWorks together with the existing output settings.", "slice": "plain", "split": "test"}
+{"id": "c0360", "label": "refactor", "message": "Extract the version and build logic from the parser\n\nThe helpers are small enough to read in one go.", "slice": "misleading", "split": "dev"}
