@@ -1,13 +1,13 @@
 # State
 
-Milestone 1, setup done 2026-10-25. B1–B4 merged; B5 next.
+Milestone 1, setup done 2026-10-25. Milestone 1 done 2026-10-25: B1–B5 merged, check green on main.
 
 ## Blocks
 - B1 Gate skeleton: merged 2026-10-25 (review: 1 blocker fixed, rework 1), check green, 24 tests
 - B2 Synthetic dataset: merged 2026-10-25 (review: 1 blocker, rework 1 removed held-out mechanism, compacted), 32 tests
 - B3 Eval harness: merged 2026-10-25 (review merge-ready first pass; trimmed), 61 tests, eval in check.sh
 - B4 Classifier: merged 2026-10-25 (review merge-ready; rework 1 added everyday words), 116 tests, eval 1.0
-- B5 CLI and docs: waiting for B4
+- B5 CLI and docs: merged 2026-10-25 (review merge-ready; 2 should-items fixed), 128 tests
 
 ## Decisions
 - 2026-10-25: five blocks, B2 ∥ B3 after B1, dataset schema fixed in the roadmap so they can run in parallel.

@@ -1,5 +1,24 @@
 # Review gates (newest first)
 
+## B5 — classify CLI and README (merged 2026-10-25, merge commit "Merge block B5: classify CLI and README (milestone 1)")
+
+Full gate: `.planning/B5/REVIEW.md`. Summaries: `.planning/B5/SUMMARY.md`, `SUMMARY-rework1.md`.
+
+**Milestone 1 is done:** CLI plus library, synthetic seeded dataset, eval with baseline and three negative
+controls, one check command — `./scripts/check.sh` green on `main` (5 × PASS, 128 tests).
+
+**What works now:** `commit-kind classify "fix: handle empty input"` → `fix`; `--json`, `--explain`, `-` for stdin;
+exit 0 / 1 (empty) / 2 (usage), errors on stderr only. The README shows real output and says what the eval does
+not prove.
+
+**Review:** merge-ready; two small test-hygiene points fixed before the merge (dead code; all test child processes
+now network-guarded).
+
+**Decisions I made (overrule here):** stdin is one message (no blank-line splitting, no `--single`); default
+output is the bare label; `--json` and `--explain` exclude each other.
+
+Answer format: "ok" · "ok, but <point>: <change>" · "no: <reason>"
+
 ## B4 — Rule-based classifier (merged 2026-10-25, merge commit "Merge block B4: rule-based classifier")
 
 Full gate: `.planning/B4/REVIEW.md`. Summaries: `.planning/B4/SUMMARY.md`, `SUMMARY-rework1.md`.
