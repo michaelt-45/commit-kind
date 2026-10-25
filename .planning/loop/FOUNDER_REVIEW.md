@@ -1,5 +1,27 @@
 # Review gates (newest first)
 
+## B4 — Rule-based classifier (merged 2026-10-25, merge commit "Merge block B4: rule-based classifier")
+
+Full gate: `.planning/B4/REVIEW.md`. Summaries: `.planning/B4/SUMMARY.md`, `SUMMARY-rework1.md`.
+
+**What works now:** `commit_kind.classify("fix: handle empty input")` → `Classification(label='fix',
+rule='prefix.fix', evidence='fix:')`. Rules live in one data table (`src/commit_kind/rules.py`): Conventional
+prefix, leading verb, ambiguous verb resolved by its object, object word, fallback `chore`. It is the gated
+classifier of the eval.
+
+**Proof:** merged tree `./scripts/check.sh` → 5 × PASS, 116 tests. Eval (test split): rules 1.0 on all four
+metrics; controls unchanged and failing. The test split was scored once for the build and once as the gate after
+rework (no tuning on test).
+
+**Review:** merge-ready. The 1.0 is an artefact of dev and test sharing templates (accepted for the demo; it says
+nothing about real repositories). A probe with invented everyday messages found gaps ("Refactor the loader" →
+fallback); rework 1 added generic words (refactor, implement, fixes, docs, remove, …), not taken from test data.
+
+**Decisions I made (overrule here):** object conflicts are decided by rule priority (chore > test > docs > fix >
+feat) instead of the rightmost word; merged without a second review after a data-only rework that I verified.
+
+Answer format: "ok" · "ok, but <point>: <change>" · "no: <reason>"
+
 ## B3 — Eval harness with negative controls (merged 2026-10-25, merge commit "Merge block B3: eval harness with negative controls")
 
 Full gate: `.planning/B3/REVIEW.md`. Summaries: `.planning/B3/SUMMARY-steps1-3.md`, `SUMMARY-trim.md`, `SUMMARY-step4.md`.
