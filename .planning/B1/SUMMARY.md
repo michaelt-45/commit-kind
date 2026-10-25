@@ -18,7 +18,7 @@ Date 2026-10-25. Branch `loop/B1`. Steps 1–5 are done. My four commits are `6c
 - Step 2: `ruff --fix` removed a `# noqa: S310` that I had added to a `urlopen` line. The S rules are not enabled, so RUF100 flagged it. It also re-sorted the imports in `tests/test_network_guard.py`. Both changes are cosmetic.
 - Step 1: `__main__.py` imports `main` from `commit_kind.cli`, as the plan says it only calls `cli.main`. No other deviation.
 - In acceptance item 3 only `FAIL ruff-check` appeared. mypy passed, because an unused import is not a mypy error. The plan allows this ("or at least").
-- Step 5: my first criterion-1 run used an unusable temp path (`/tmp/x` is a directory). I re-ran it directly (see Checks). I left no files behind.
+- Step 5: my first criterion-1 run wrote its log to a temp path that turned out to be a directory. I re-ran it directly (see Checks). I left no files behind.
 
 ## Checks
 - Step 1: `python3 -m ruff check src`, `ruff format --check src` and `mypy --strict src` all passed (3 source files). `PYTHONPATH=src python3 -m commit_kind --version` printed `commit-kind 0.1.0`.
@@ -35,7 +35,7 @@ Date 2026-10-25. Branch `loop/B1`. Steps 1–5 are done. My four commits are `6c
   7. `tests/test_network_guard.py`: 4 passed.
   8. `git ls-files -s scripts/check.sh` gave `100755`.
   9. `LICENSE` has the copyright line, and `README.md` mentions `./scripts/check.sh`. `.gitignore` covers the caches.
-  10. The path scan was empty. The e-mail scan, which excludes only `.planning`, hit only the pre-existing `CLAUDE.md` lines 17–18, which hold the noreply identity text. This is not new and none of my files have an address. The plan's exclusion list could add `CLAUDE.md`.
+  10. The path scan was empty at that time (before this summary was committed; see review B-1). The e-mail scan, which excludes only `.planning`, hit only the pre-existing `CLAUDE.md` lines 17–18, which hold the noreply identity text. This is not new and none of my files have an address. The plan's exclusion list could add `CLAUDE.md`.
   11. All 5 commits on `main..loop/B1` are authored `michaelt-45 <202262075+michaelt-45@users.noreply.github.com>`. Each of my four messages ends with the exact Co-Authored-By line, and there are no session links. The fifth is the plan commit `0373b77`, which I did not check.
   12. `git diff main...loop/B1 --stat` shows 15 files, all in the section 2 list plus `.planning/B1/PLAN.md`.
 - The bash used by the script is `/usr/bin/env bash`, 3.2.57. `bash -n` is covered by a test.
