@@ -8,7 +8,7 @@ risk: 2
 blocking: false
 score: 1.6
 block: B5
-status: open
+status: done
 ---
 # Network guard does not cover child processes
 **Finding:** The in-process socket patch does not reach subprocesses started by tests (CLI end-to-end tests in B5).

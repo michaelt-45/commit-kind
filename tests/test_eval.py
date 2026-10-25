@@ -216,7 +216,7 @@ def test_bad_strategy_output_exit_3(
 
 def test_module_entry_subprocess(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     cfg = make_case(tmp_path, monkeypatch, classifier=False)
-    env = {**os.environ, "PYTHONPATH": "src"}
+    env = {**os.environ, "PYTHONPATH": os.pathsep.join(["src", "tests"])}
     cmd = [sys.executable, "-m", "commit_kind", "eval", "--config", str(cfg)]
     done = subprocess.run(cmd, env=env, capture_output=True, text=True, timeout=30)
     assert done.returncode == 0 and "eval passed" in done.stdout
