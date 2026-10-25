@@ -47,7 +47,7 @@ case "${1:-}" in
         run_step mypy "$PY" -m mypy --strict src tests scripts
         run_step pytest "$PY" -m pytest -q
         # >>> EVAL STEP (added in B3) >>>
-        # run_step eval "$PY" -m commit_kind eval
+        run_step eval "$PY" -m commit_kind eval
         # <<< EVAL STEP <<<
         finish
         ;;

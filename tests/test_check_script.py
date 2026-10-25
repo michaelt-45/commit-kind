@@ -88,3 +88,21 @@ def test_check_script_bash_syntax() -> None:
         ["bash", "-n", str(SCRIPT)], capture_output=True, text=True, timeout=30, check=False
     )
     assert result.returncode == 0, result.stderr
+
+
+def test_eval_step_is_wired_between_markers() -> None:
+    lines = [line.strip() for line in SCRIPT.read_text(encoding="utf-8").splitlines()]
+    between = lines[lines.index(EVAL_START) + 1 : lines.index(EVAL_END)]
+    assert between == ['run_step eval "$PY" -m commit_kind eval']
+
+
+def test_generator_keywords_match_eval_config() -> None:
+    import importlib.util
+    import json
+
+    spec = importlib.util.spec_from_file_location("gen", ROOT / "scripts" / "generate_dataset.py")
+    assert spec is not None and spec.loader is not None
+    gen = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(gen)
+    config = json.loads((ROOT / "evals" / "config.json").read_text(encoding="utf-8"))
+    assert config["keyword_spam"] == gen.CONTROL_KEYWORDS
