@@ -1,6 +1,6 @@
 {
   "baseline": "baseline.json",
-  "classifier": null,
+  "classifier": "rules",
   "controls": [
     "majority",
     "keyword_spam",
@@ -8,7 +8,8 @@
   ],
   "dataset": "../data/commits.jsonl",
   "finished_blocks": [
-    "B3"
+    "B3",
+    "B4"
   ],
   "keyword_spam": {
     "chore": [
