@@ -63,7 +63,7 @@ def classify(message: str) -> Classification:
             found = _objects(tokens[n:]) if rule.kind == "ambiguous" else None
             end = tokens[n - 1][2]
             if found:
-                rule, end = found
+                return Classification(found[0].label, found[0].id, summary[tokens[0][1] : found[1]])
             return Classification(rule.label, rule.id, summary[tokens[0][1] : end])
     found = _objects(tokens)
     if found:
