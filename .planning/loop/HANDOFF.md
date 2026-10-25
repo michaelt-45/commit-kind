@@ -12,7 +12,7 @@
 - Budget: 5-hour 8 %, week 1 %; thresholds 88 % / 92 %
 
 ## Open decisions (recommendation first)
-- Eval thresholds 0.85 / 0.85 / 0.70 / 0.70: recommendation approve; blocks B4's merge.
+- none (thresholds approved 2026-10-25).
 
 ## Next steps (in order, with parallel groups)
 1. Publish the repo (authorized in the setup prompt), done once B1 merged.

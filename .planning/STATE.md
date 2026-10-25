@@ -18,3 +18,4 @@ Milestone 1, setup done 2026-10-25. B1, B2 merged; B3 being trimmed before step 
   first one, which sat in the session's temp dir.
 - 2026-10-25: owner asked to keep everything only as big as necessary (demo); plans get size budgets.
 - 2026-10-25: held-out test vocabulary dropped; first-word leniency accepted for the demo.
+- 2026-10-25: eval thresholds 0.85 / 0.85 / 0.70 / 0.70 approved by the owner in chat ("ja passt"); B2 gate answered the same way.

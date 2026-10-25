@@ -24,6 +24,8 @@ from about 1,670 to 448 lines (owner: "only as big as necessary, just a demo").
 
 **Open questions:** eval thresholds 0.85 / 0.85 / 0.70 / 0.70 — approval needed before B4 merges.
 
+**Owner's answer (chat, 2026-10-25):** "ja passt" — thresholds approved, gate ok.
+
 Answer format: "ok" · "ok, but <point>: <change>" · "no: <reason>"
 
 ## B1 — Gate skeleton (merged 2026-10-25, merge commit on `main`: "Merge block B1: gate skeleton")
