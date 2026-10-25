@@ -17,7 +17,13 @@
       "macro_f1": 0.1671,
       "min_recall": 0.1333,
       "misleading_accuracy": 0.1333
+    },
+    "rules": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "min_recall": 1.0,
+      "misleading_accuracy": 1.0
     }
   },
-  "written_for_block": "B3"
+  "written_for_block": "B4"
 }
