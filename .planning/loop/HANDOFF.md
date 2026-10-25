@@ -7,9 +7,9 @@
 
 ## State
 - Merged: none (setup only)
-- Built, not merged: none
-- Running or waiting: none
-- Budget: 5-hour 3 %, week 0 % at setup; thresholds 88 % / 92 %
+- Built, not merged: B1 on `loop/B1` (review: one blocker, fixed; rework 1 for S-1, C-1, C-2, C-3, C-5)
+- Running or waiting: B1 rework agent; B2+B3 planning agent (plans come back as text)
+- Budget: 5-hour 8 %, week 1 %; thresholds 88 % / 92 %
 
 ## Open decisions (recommendation first)
 - None blocking. Eval thresholds come with the B3 gate.
@@ -20,7 +20,7 @@
 3. B4, then B5.
 
 ## Worktrees (paths, branch)
-- none
+- `~/.cache/gated-build-loop/commit-kind/wt/B1` — `loop/B1`
 
 ## Pitfalls specific to this repo
 - Committed files must not contain absolute local paths (they reveal the local user name); agents' summaries are
