@@ -338,3 +338,13 @@ Decisions I made:
 - `--split dev` and `--show-errors` are added for honest B4 tuning.
 - `LABELS` lives in its own module, so B4 does not import eval code.
 - B3 adds its README section only after merging `main`.
+
+## Trim (owner decision: demo-sized B3; this section overrides the sections above)
+
+- Removed: `require_classifier_from_block` / `classifier_required`, dataset sha256 and `dataset_mismatch`, `--reason` and baseline `notes`, `thresholds_status`, `--show-errors` JSON output, `StrategyFactory`, the AST stdlib test, per-key config validation beyond: required keys, thresholds in [0,1], all three controls listed, classifier not a control and in the registry.
+- Config keys: `baseline`, `classifier`, `controls`, `dataset`, `finished_blocks`, `keyword_spam`, `random_seed`, `thresholds` (plain JSON, canonical on write). Baseline: `{"strategies": {name: 4 metrics}, "written_for_block": "B<n>"}`.
+- Gate failures (strings): `too lenient: <metric> ...`, `classifier <n> below threshold: <metric> ...`, `classifier <n> below baseline: <metric> ...`, `classifier <n> has no baseline entry` (skipped during `--write-baseline`). `tests/test_eval_step.py` in step 4 only needs the wiring check.
+- CLI: `eval [--config PATH] [--json] [--split {test,dev}] [--show-errors] [--write-baseline --block B<n>]`. `--show-errors` only with `--split dev`, text only. `--split dev` is informational: no gate, no baseline.
+- Exit codes: 0 pass; 1 gate failed or baseline write refused (nothing written); 2 usage; 3 missing or invalid config, dataset (prints the generate command) or baseline, bad strategy output.
+- B4 registers its classifier with one `REGISTRY["rules"] = lambda ctx: ...` entry (plain callable) and sets `"classifier": "rules"`.
+- Tests: `tests/_evalfixtures.py` and `tests/test_eval.py` replace the five earlier B3 test files.
