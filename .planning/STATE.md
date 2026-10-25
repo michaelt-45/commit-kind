@@ -1,11 +1,11 @@
 # State
 
-Milestone 1, setup done 2026-10-25. B1, B2 merged; B3 being trimmed before step 4; B4 planned.
+Milestone 1, setup done 2026-10-25. B1, B2, B3 merged; B4 next.
 
 ## Blocks
 - B1 Gate skeleton: merged 2026-10-25 (review: 1 blocker fixed, rework 1), check green, 24 tests
 - B2 Synthetic dataset: merged 2026-10-25 (review: 1 blocker, rework 1 removed held-out mechanism, compacted), 32 tests
-- B3 Eval harness: steps 1-3 built; trimming to the roadmap; step 4 (wire eval on real data) next
+- B3 Eval harness: merged 2026-10-25 (review merge-ready first pass; trimmed), 61 tests, eval in check.sh
 - B4 Classifier: planned (plan kept outside the repo until the branch exists)
 - B5 CLI and docs: waiting for B4
 

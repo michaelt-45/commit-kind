@@ -1,5 +1,27 @@
 # Review gates (newest first)
 
+## B3 — Eval harness with negative controls (merged 2026-10-25, merge commit "Merge block B3: eval harness with negative controls")
+
+Full gate: `.planning/B3/REVIEW.md`. Summaries: `.planning/B3/SUMMARY-steps1-3.md`, `SUMMARY-trim.md`, `SUMMARY-step4.md`.
+
+**What works now:** `python -m commit_kind eval` scores the test split on accuracy, macro-F1, min recall and
+misleading accuracy; majority, keyword_spam and random must fail every metric, otherwise "too lenient" and rc 1.
+`./scripts/check.sh` runs it as step 5.
+
+**Proof:** merged tree `./scripts/check.sh` → 5 × PASS, 61 tests, eval passed. Reviewer probes on real data: a
+lowered threshold → "too lenient"; an oracle classifier below threshold or below baseline → rc 1; stored-precision
+comparison; missing inputs → rc 3; a refused baseline write leaves files unchanged.
+
+**Review:** merge-ready on the first pass; four "could" notes, none needed for a demo. Before review the module was
+trimmed from about 830 to 261 lines and the tests from about 1,070 to 284 (owner: "only as big as necessary").
+
+**Decisions I made (overrule here):** kept `--split dev --show-errors` as the B4 tuning aid; removed the
+classifier-required flag, dataset hash and baseline notes as beyond the roadmap.
+
+**Thresholds:** 0.85 / 0.85 / 0.70 / 0.70, approved by the owner in chat on 2026-10-25 ("ja passt").
+
+Answer format: "ok" · "ok, but <point>: <change>" · "no: <reason>"
+
 ## B2 — Synthetic dataset (merged 2026-10-25, merge commit "Merge block B2: synthetic dataset")
 
 Full gate: `.planning/B2/REVIEW.md`. Rework: `.planning/B2/SUMMARY-rework1.md`.
