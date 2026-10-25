@@ -19,6 +19,6 @@ def pytest_unconfigure(config: pytest.Config) -> None:
 
 @pytest.fixture(autouse=True)
 def _block_network() -> None:
-    """Belt and braces: re-apply the guard if a test restored a real function."""
+    """Belt and braces: assert the guard is still installed before each test."""
     for name in _netguard.GUARDED_NAMES:
         assert getattr(socket, name) is _netguard.blocked

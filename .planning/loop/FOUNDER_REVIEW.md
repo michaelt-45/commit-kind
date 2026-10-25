@@ -1,5 +1,31 @@
 # Review gates (newest first)
 
+## B2 — Synthetic dataset (merged 2026-10-25, merge commit "Merge block B2: synthetic dataset")
+
+Full gate: `.planning/B2/REVIEW.md`. Rework: `.planning/B2/SUMMARY-rework1.md`.
+
+**What works now:** `python3 scripts/generate_dataset.py --out data/commits.jsonl` writes 360 synthetic commit
+messages (60 per label; slices prefixed / plain / misleading; exactly 50/50 dev/test), byte-identical on every run.
+The committed file equals a fresh generation (tested).
+
+**Proof:** merged tree `./scripts/check.sh` → 4 × PASS, 32 tests. Controls on the test split: keyword_spam
+0.54 / 0.55 / 0.40 / 0.00, majority 0.17 / 0.05 / 0.00 / 0.17, random 0.17 / 0.18 / 0.07 / 0.15 (accuracy,
+macro-F1, min recall, misleading accuracy) — all below the proposed thresholds.
+
+**Review:** first verdict "not merge-ready": the held-out vocabulary meant to keep B4 honest did not hold
+(B-1), plus mislabelled decoys. Rework 1 removed the mechanism, fixed the labels and shrank generator and tests
+from about 1,670 to 448 lines (owner: "only as big as necessary, just a demo").
+
+**Decisions I made (overrule here):**
+- Dropped the held-out mechanism instead of repairing it; honesty in B4 is a process rule (tune on dev only).
+- Accepted the reviewer's leniency probe: a dev-fitted first-word lookup would pass the thresholds. For a demo
+  the dataset stays easy; the three required controls fail by a wide margin.
+- Merged after rework 1 without a second review agent; I re-ran the check and read a sample of messages.
+
+**Open questions:** eval thresholds 0.85 / 0.85 / 0.70 / 0.70 — approval needed before B4 merges.
+
+Answer format: "ok" · "ok, but <point>: <change>" · "no: <reason>"
+
 ## B1 — Gate skeleton (merged 2026-10-25, merge commit on `main`: "Merge block B1: gate skeleton")
 
 Full gate: `.planning/B1/REVIEW.md`. Rework: `.planning/B1/SUMMARY-rework1.md`.
