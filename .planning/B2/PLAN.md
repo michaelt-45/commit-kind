@@ -253,3 +253,11 @@ Decisions I made:
 - `--seed` defaults to 20261025.
 - The generator rerolls up to 1000 times per record and then fails loudly.
 - B2 does not touch `pyproject.toml`.
+
+## Rework 1
+
+- The held-out vocabulary mechanism (`HELDOUT`, primary/secondary probes, held-out tests) is removed. The owner accepted this for a demo, so review B-1 is resolved by dropping it.
+- The generator is compact (about 330 lines): templates and pools are text blocks inside the script. B2 tests are one file of about 120 lines.
+- Dev templates are picked round-robin from a seeded shuffle, so every template appears in dev at least once. A test checks this.
+- Review S-1, S-3, C-1 and C-3 are fixed (decoy tails as context, B3 tie rule, "an" before vowels, `!` only on feat, fix and refactor); the "Done <tail>." body lines are gone.
+- The first-word leniency (review Q1) is accepted for the demo.
