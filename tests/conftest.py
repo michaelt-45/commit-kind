@@ -1,21 +1,24 @@
 import socket
-from typing import NoReturn
 
 import pytest
 
+import _netguard
 
-class NetworkBlockedError(RuntimeError):
-    """Raised when a test tries to open a network connection.
-
-    A RuntimeError on purpose: code that catches OSError cannot swallow it.
-    """
+_originals: dict[str, object] = {}
 
 
-def _blocked(*args: object, **kwargs: object) -> NoReturn:
-    raise NetworkBlockedError("network access is blocked in tests")
+def pytest_configure(config: pytest.Config) -> None:
+    """Block the network for the whole session, including collection and wide-scope fixtures."""
+    _originals.update(_netguard.install())
+
+
+def pytest_unconfigure(config: pytest.Config) -> None:
+    _netguard.restore(_originals)
+    _originals.clear()
 
 
 @pytest.fixture(autouse=True)
-def _block_network(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(socket, "socket", _blocked)
-    monkeypatch.setattr(socket, "create_connection", _blocked)
+def _block_network() -> None:
+    """Belt and braces: re-apply the guard if a test restored a real function."""
+    for name in _netguard.GUARDED_NAMES:
+        assert getattr(socket, name) is _netguard.blocked
