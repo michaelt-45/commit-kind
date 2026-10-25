@@ -4,10 +4,12 @@ Everything fails closed: a missing or invalid input is an InputError (exit 3), n
 Every metric value goes through q() at storage, display and comparison.
 """
 
+import argparse
 import hashlib
 import json
 import os
 import re
+import sys
 import tempfile
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
@@ -585,7 +587,9 @@ def canonical_json(obj: object) -> str:
     return json.dumps(obj, sort_keys=True, indent=2, ensure_ascii=False) + "\n"
 
 
-def render_json(report: Report) -> str:
+def render_json(
+    report: Report, errors: Mapping[str, Sequence[Mapping[str, str]]] | None = None
+) -> str:
     run, config = report.run, report.config
     strategies = {
         name: {
@@ -595,33 +599,34 @@ def render_json(report: Report) -> str:
         }
         for name, res in run.results.items()
     }
-    return canonical_json(
-        {
-            "split": run.split,
-            "dataset": {
-                "path": config.dataset_ref,
-                "sha256": run.dataset_sha256,
-                "records": run.dataset_records,
-                "evaluated": len(run.evaluated),
-            },
-            "thresholds": dict(config.thresholds),
-            "thresholds_status": config.thresholds_status,
-            "classifier": run.classifier,
-            "strategies": strategies,
-            "failures": [
-                {
-                    "kind": f.kind,
-                    "strategy": f.strategy,
-                    "metric": f.metric,
-                    "value": f.value,
-                    "limit": f.limit,
-                    "message": f.message,
-                }
-                for f in report.failures
-            ],
-            "ok": report.ok,
-        }
-    )
+    payload: dict[str, object] = {
+        "split": run.split,
+        "dataset": {
+            "path": config.dataset_ref,
+            "sha256": run.dataset_sha256,
+            "records": run.dataset_records,
+            "evaluated": len(run.evaluated),
+        },
+        "thresholds": dict(config.thresholds),
+        "thresholds_status": config.thresholds_status,
+        "classifier": run.classifier,
+        "strategies": strategies,
+        "failures": [
+            {
+                "kind": f.kind,
+                "strategy": f.strategy,
+                "metric": f.metric,
+                "value": f.value,
+                "limit": f.limit,
+                "message": f.message,
+            }
+            for f in report.failures
+        ],
+        "ok": report.ok,
+    }
+    if errors is not None:
+        payload["errors"] = {name: [dict(e) for e in rows] for name, rows in errors.items()}
+    return canonical_json(payload)
 
 
 # --------------------------------------------------------------------------- writers
@@ -711,3 +716,115 @@ def write_baseline_files(
     except OSError as exc:
         raise InputError(f"cannot write baseline or config: {exc}") from None
     return baseline
+
+
+# --------------------------------------------------------------------------- command line
+
+
+def configure_parser(p: argparse.ArgumentParser) -> None:
+    p.add_argument(
+        "--config", default="evals/config.json", help="eval config (default: %(default)s)"
+    )
+    p.add_argument("--json", action="store_true", help="print one JSON object instead of the table")
+    p.add_argument("--split", choices=SPLITS, default="test", help="dev is informational only")
+    p.add_argument("--show-errors", action="store_true", help="list dev misclassifications")
+    p.add_argument("--write-baseline", action="store_true", help="rewrite the baseline")
+    p.add_argument("--block", help="block name for --write-baseline, for example B4")
+    p.add_argument("--reason", help="reason recorded when a baseline is written with a regression")
+
+
+def _usage_error(message: str) -> int:
+    print(f"commit-kind eval: error: {message}", file=sys.stderr)
+    return 2
+
+
+def _error_rows(run: EvalRun) -> dict[str, list[dict[str, str]]]:
+    """Misclassified records per strategy: the classifier if configured, else the controls."""
+    names = [run.classifier] if run.classifier else list(run.results)
+    return {
+        name: [
+            {"id": rec.id, "expected": rec.label, "predicted": pred}
+            for rec, pred in zip(run.evaluated, run.results[name].predictions, strict=True)
+            if pred != rec.label
+        ]
+        for name in names
+    }
+
+
+def _render_errors(run: EvalRun, errors: Mapping[str, Sequence[Mapping[str, str]]]) -> str:
+    by_id = {r.id: r for r in run.evaluated}
+    out: list[str] = []
+    for name, rows in errors.items():
+        out.append(f"errors: {name} ({len(rows)} of {len(run.evaluated)} dev records)")
+        for row in rows:
+            first = by_id[row["id"]].message.split("\n", 1)[0][:70]
+            out.append(f"  {row['id']} expected {row['expected']} got {row['predicted']}: {first}")
+    return "\n".join(out) + "\n"
+
+
+REFUSED_KINDS = ("too_lenient", "below_threshold", "classifier_required")
+REASON_KINDS = ("below_baseline", "dataset_mismatch")
+
+
+def run_from_args(args: argparse.Namespace) -> int:
+    """Run the eval command. Exit codes: 0 passed, 1 gate failed, 2 usage, 3 input error."""
+    if args.show_errors and args.split != "dev":
+        return _usage_error("--show-errors requires --split dev")
+    if args.write_baseline and args.split == "dev":
+        return _usage_error("--write-baseline cannot be combined with --split dev")
+    if args.write_baseline and not args.block:
+        return _usage_error("--write-baseline requires --block <B>, for example --block B4")
+    if (args.block or args.reason) and not args.write_baseline:
+        return _usage_error("--block and --reason require --write-baseline")
+    if args.block and not BLOCK_PATTERN.match(args.block):
+        return _usage_error(f"bad block name {args.block!r} (expected B followed by digits)")
+    try:
+        return _run(args)
+    except InputError as exc:
+        print(f"eval: {exc}", file=sys.stderr)
+        return 3
+
+
+def _run(args: argparse.Namespace) -> int:
+    config = load_config(Path(args.config))
+    run = run_eval(config, REGISTRY, split=args.split)
+    errors = _error_rows(run) if args.show_errors else None
+
+    if args.split == "dev":
+        report = Report(run, config, informational=True)
+        if args.json:
+            print(render_json(report, errors), end="")
+        else:
+            print(render_table(report), end="")
+            if errors is not None:
+                print(_render_errors(run, errors), end="")
+        return 0
+
+    write = bool(args.write_baseline)
+    baseline: Baseline | None = None
+    if config.baseline_path.exists() or not write:
+        if not config.baseline_path.exists():
+            raise InputError(
+                f"baseline not found: {config.baseline_path}; run with --write-baseline"
+            )
+        baseline = load_baseline(config.baseline_path)
+    failures = check_run(config, run, baseline, first_entry_ok=write)
+    status = sys.stderr if args.json else sys.stdout
+
+    accepted = False
+    if write and not any(f.kind in REFUSED_KINDS for f in failures):
+        needs_reason = [f for f in failures if f.kind in REASON_KINDS]
+        accepted = bool(args.reason) or not needs_reason
+        if accepted:
+            failures = []
+    report = Report(run, config, tuple(failures))
+    print(render_json(report) if args.json else render_table(report), end="")
+    if not write:
+        return 0 if report.ok else 1
+    if not accepted:
+        hint = "" if any(f.kind in REFUSED_KINDS for f in failures) else " (give --reason)"
+        print(f"baseline not written: gate failed{hint}", file=sys.stderr)
+        return 1
+    write_baseline_files(config, run, baseline, args.block, args.reason)
+    print(f"baseline written for {args.block}: {config.baseline_ref}", file=status)
+    return 0
